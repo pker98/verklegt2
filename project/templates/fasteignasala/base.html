@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {%  if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Fasteignasala</title>
+    {%  endif %}
+
+</head>
+<body>
+
+<h1>Fasteignasala</h1>
+
+{% for apartment in apartments %}
+    <h1>{{ apartment.address }} {{ apartment.zip }}</h1>
+    <p>{{ apartment.description }}</p>
+{% endfor %}
+
+</body>
+</html>
