@@ -1,5 +1,5 @@
 from django.db import models
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 
 class base_user(models.Model):
     name = models.CharField(max_length=255)
@@ -14,7 +14,7 @@ class Salesman(models.Model):
 
 class Apartment(models.Model):
     description = models.CharField(max_length=255)
-    salesman = models.ForeignKey(Sales_user, on_delete=models.SET_NULL)
+    salesman = models.ForeignKey(Sales_user, on_delete=models.CASCADE)
 
 class ApartmentImage(models.Model):
     image = models.CharField(max_length=999)
