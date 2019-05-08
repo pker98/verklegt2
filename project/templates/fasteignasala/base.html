@@ -5,7 +5,7 @@
     {%  if title %}
         <title>{{ title }}</title>
     {% else %}
-        <title>Fasteignasala</title>
+        <title>LúxHús</title>
     {%  endif %}
 
     <meta charset="utf-8">
@@ -16,32 +16,31 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="{% url 'fasteignasala-home' %}">Fasteignasala</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="{% url 'fasteignasala-home' %}">LúxHús</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'soluskra-home' %}">Söluskrá</a>
-          </li>
             <li class="nav-item">
-            <a class="nav-link" href="{% url 'starfsmenn-home' %}">Starfsmenn</a>
-          </li>
-             <li class="nav-item">
-            <a class="nav-link" href="{% url 'um_okkur-home' %}">Um okkur</a>
+                <a class="nav-link" href="{% url 'soluskra-home' %}">Söluskrá</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'starfsmenn-home' %}">Starfsmenn</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'um_okkur-home' %}">Um okkur</a>
             </li>
         </ul>
-
-        <form class="form-inline my-2 my-lg-0">
-            <li class="nav-item" >
-            <a class="nav-link" href="{% url 'um_okkur-home' %}">Innskráning</a>
-          </li>
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-            <a class="nav-link" href="{% url 'um_okkur-home' %}">Nýskráning</a>
-          </li>
-        </form>
+                <a class="nav-link" href="{% url 'um_okkur-home' %}">Innskráning</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'nyskraning' %}">Nýskráning</a>
+            </li>
+        </ul>
       </div>
     </nav>
 

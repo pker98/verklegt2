@@ -17,3 +17,15 @@ apartments = [
 def home(request):
     context = {"apartments" : apartments}
     return render(request, 'forsida/home.html', context)
+
+def um_okkur(request):
+    return render(request, 'um_okkur/um_okkur.html', {"title": "Um okkur"})
+
+def starfsmenn(request):
+    return render(request, 'starfsmenn/starfsmenn.html', {"title": "Starfsmenn"})
+
+def soluskra(request):
+    return render(request, 'soluskra/soluskra.html', {"title": "Söluskrá"})
+
+def nyskraning(request):
+    return render(request, 'nyskraning/nyskraning.html', {"title": "Nýskráning"})

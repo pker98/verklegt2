@@ -1,0 +1,20 @@
+{% extends "fasteignasala/base.html" %}
+{% block content %}
+  <div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <legend class="border-bottom mb-4">Nýskráning</legend>
+            {{ form }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Nýskrá</button>
+        </div>
+    </form>
+  <div class="border-top pt-3">
+      <small class="text-muted">
+          Ertu þegar með aðgang? <a class="ml-2" href="#">Skrá inn</a>
+      </small>
+  </div>
+  </div>
+{% endblock content %}
