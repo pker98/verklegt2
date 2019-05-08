@@ -22,6 +22,7 @@ def um_okkur(request):
     return render(request, 'um_okkur/um_okkur.html', {"title": "Um okkur"})
 
 def starfsmenn(request):
+    
     return render(request, 'starfsmenn/starfsmenn.html', {"title": "Starfsmenn"})
 
 def soluskra(request):

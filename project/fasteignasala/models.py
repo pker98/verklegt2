@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 class Base_user(models.Model):
     name = models.CharField(max_length=255)
     SSN = models.CharField(max_length=10)
+    def __str__(self):
+        return self.name
 
 class Sales_user(models.Model):
     description = models.CharField(max_length=255)
