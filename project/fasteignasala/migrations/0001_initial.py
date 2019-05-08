@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='base_user',
+            name='Base_user',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
