@@ -1,8 +1,17 @@
 {% extends "fasteignasala/base.html" %}
 {% block content %}
+    <div class="apartment_list">
+        <h1 class="text-center pt-3">Allar eignir:</h1>
+        {% for apartment in apartments %}
+         <div class="apartment_container">
 
-    {% for apartment in apartments %}
-        <h1>{{ apartment.address }} {{ apartment.zip }}</h1>
-        <p>{{ apartment.description }}</p>
-    {% endfor %}
+                <div class="img_container"></div>
+                <div class="apartment_address">{{ apartment.address }}</div>
+                <div class="apartment_zip">{{ apartment.zip }}</div>
+                <br>
+                <p class="description">{{ apartment.description }}</p>
+         </div>
+        {% endfor %}
+    </div>
+
 {% endblock content %}

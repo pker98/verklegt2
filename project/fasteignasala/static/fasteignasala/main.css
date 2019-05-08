@@ -1,0 +1,50 @@
+html {
+    font-family: Roboto, sans-serif;
+}
+h1 {
+    font-size: 1.5rem;
+}
+
+.apartment_address {
+    font-size: 1.3rem;
+    font-weight: lighter;
+    display: inline-block;
+    float: left;
+}
+
+.apartment_zip {
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: inline-block;
+    float: right;
+}
+
+.apartment_list {
+    margin: auto;
+    text-align: center;
+}
+.description {
+    text-align: justify;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+}
+
+.img_container {
+    width: 100%;
+    height: 12rem;
+    margin: auto auto 1rem auto;
+    background-color: aqua;
+}
+
+.apartment_container {
+    display: inline-block;
+    margin: 0.7rem;
+    padding: 1.3rem;
+    width: 18rem;
+    height: 27rem;
+    background-color: whitesmoke;
+    border-color: lightgrey;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-radius: 0.2rem;
+}
