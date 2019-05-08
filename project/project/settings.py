@@ -32,10 +32,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'fasteignasala.apps.FasteignasalaConfig',
-    'starfsmenn.apps.StarfsmennConfig',
-    'soluskra.apps.SoluskraConfig',
-    'um_okkur.apps.UmOkkurConfig',
-    'nyskraning.apps.NyskraningConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
