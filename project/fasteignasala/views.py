@@ -17,6 +17,3 @@ apartments = [
 def home(request):
     context = {"apartments" : apartments}
     return render(request, 'forsida/home.html', context)
-
-def um_okkur(request):
-    return render(request, 'um_okkur/um_okkur.html', {"title": "Um okkur"})
