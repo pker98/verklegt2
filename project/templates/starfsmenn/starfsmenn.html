@@ -1,5 +1,8 @@
 {% extends "fasteignasala/base.html" %}
 {% block content %}
-    <h1>Starfsmenn</h1>
-    <p>My first paragraph.</p>
+
+    {% for user in base_users %}
+        <h1>{{ user.name }}</h1>
+        <p>{{ user.SSN }}</p>
+    {% endfor %}
 {% endblock content %}

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from fasteignasala.models import Base_user
 
 apartments = [
     {
@@ -22,8 +23,8 @@ def um_okkur(request):
     return render(request, 'um_okkur/um_okkur.html', {"title": "Um okkur"})
 
 def starfsmenn(request):
-    
-    return render(request, 'starfsmenn/starfsmenn.html', {"title": "Starfsmenn"})
+    context = {"base_users" : Base_user.objects.all()}
+    return render(request, 'starfsmenn/starfsmenn.html', context)
 
 def soluskra(request):
     return render(request, 'soluskra/soluskra.html', {"title": "Söluskrá"})
