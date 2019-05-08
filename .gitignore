@@ -1,0 +1,9 @@
+# Ignore files and directories
+venv/
+__pycache__
+
+# PyCharm generated files.
+.idea/
+*.ipr
+*.iml
+*.iws
