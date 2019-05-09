@@ -3,14 +3,17 @@
     <div class="apartment_list">
         <h1 class="text-center pt-3">Allar eignir:</h1>
         {% for apartment in apartments %}
-         <div class="apartment_container">
+            <a href="#">
+                <div class="apartment_container">
 
-                <div class="img_container"></div>
-                <div class="apartment_address">{{ apartment.address }}</div>
-                <div class="apartment_zip">{{ apartment.zip }}</div>
-                <br>
-                <p class="description">{{ apartment.description }}</p>
-         </div>
+                    <div class="img_container"></div>
+                    <div class="apartment_address">{{ apartment.address }}</div>
+                    <div class="apartment_zip">{{ apartment.zip }}</div>
+                    <br>
+                    <p class="description">{{ apartment.description }}</p>
+                </div>
+            </a>
+
         {% endfor %}
     </div>
 {% endblock content %}

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 # from fasteignasala.models import Base_user
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import LoginView
 
 apartments = [
     {
@@ -72,3 +73,9 @@ def nyskraning(request):
         context = {'form' : form, 'title' : 'Nýskráning'}
 
         return render(request, 'nyskraning/nyskraning.html', context)
+
+def innskraning(request):
+    form = LoginView()
+
+    context = {'form': form, 'title': 'Innskráning'}
+    return render(request, 'innskraning/innskraning.html', context)
