@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 # class PaymentInfo(models.Model):
 #    bank_account_num = models.CharField(max_length=999)
 
+
 class Apartment(models.Model):
     address = models.CharField(max_length=255)
     price = models.CharField(max_length=20)
@@ -24,9 +25,16 @@ class Apartment(models.Model):
     zip = models.CharField(max_length=3, blank=False)
     town = models.CharField(max_length=255, blank=False)
 
+    def __str__(self):
+        return self.address
+
+
 class ApartmentImage(models.Model):
     image = models.CharField(max_length=999)
     apartment = models.ForeignKey(Apartment, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.image
 
 # class Base_userImage(models.Model):
 #    image = models.CharField(max_length=999)
