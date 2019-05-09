@@ -26,6 +26,8 @@ class Migration(migrations.Migration):
                 ('num_bed_room', models.CharField(max_length=2)),
                 ('num_bath_room', models.CharField(max_length=2)),
                 ('description', models.CharField(max_length=600)),
+                ('zip', models.IntegerField()),
+                ('town', models.CharField())
             ],
         ),
         migrations.CreateModel(

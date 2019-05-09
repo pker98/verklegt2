@@ -1,4 +1,4 @@
-{% extends "fasteignasala/base.html" %}
+{% extends "fasteignasala/../base.html" %}
 {% block content %}
     <div class="apartment_list">
         <h1 class="text-center pt-3">Allar eignir:</h1>
@@ -6,7 +6,9 @@
             <a href="#">
                 <div class="apartment_container">
 
-                    <div class="img_container"></div>
+                    <div class="img_container">
+                        <img src="{% apartment.id.apartmentimage %} %}">
+                    </div>
                     <div class="apartment_address">{{ apartment.address }}</div>
                     <div class="apartment_zip">{{ apartment.zip }}</div>
                     <br>
