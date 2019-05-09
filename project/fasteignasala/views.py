@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from fasteignasala.models import Base_user
+# from fasteignasala.models import Base_user
 
 apartments = [
     {

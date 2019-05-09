@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'yxiabwmf',
-        'USER': 'yxiabwmf',
-        'PASSWORD': '9P2R2idNRYL3rkn93fy2zzqsqw-qZjMA',
+        'NAME': 'pysqixcr',
+        'USER': 'pysqixcr',
+        'PASSWORD': 'QOJiYcBtIZNZ1mFCV61gaxMkTpAzcSdE',
         'HOST': 'balarama.db.elephantsql.com',
         'PORT': '5432'
     }
