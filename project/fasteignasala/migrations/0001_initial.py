@@ -28,12 +28,6 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Sales_user',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-            ],
-        ),
-        migrations.CreateModel(
             name='Salesman',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
@@ -48,10 +42,5 @@ class Migration(migrations.Migration):
                 ('image', models.CharField(max_length=999)),
                 ('apartment', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='fasteignasala.Apartment')),
             ],
-        ),
-        migrations.AddField(
-            model_name='apartment',
-            name='salesman',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='fasteignasala.Sales_user'),
         ),
     ]
