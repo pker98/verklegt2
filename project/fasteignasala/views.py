@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 # from fasteignasala.models import Base_user
+from django.contrib.auth.forms import UserCreationForm
 
 apartments = [
     {
@@ -60,4 +61,14 @@ def soluskra(request):
     return render(request, 'soluskra/soluskra.html', {"title": "Söluskrá"})
 
 def nyskraning(request):
-    return render(request, 'nyskraning/nyskraning.html', {"title": "Nýskráning"})
+    if request == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('forsida/')
+    else:
+        form = UserCreationForm()
+
+        context = {'form' : form, 'title' : 'Nýskráning'}
+
+        return render(request, 'nyskraning/nyskraning.html', context)
