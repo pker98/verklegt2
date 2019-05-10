@@ -93,26 +93,28 @@ h1 {
 
 .see_more {
     position: absolute;
-    color: white;
     font-weight: bold;
     font-size: 1.5rem;
+    color: snow;
     text-align: center;
     transform: translateX(50%) translateY(5rem);
     opacity: 0;
+    transition: 0.2s ease-in-out;
+    z-index: 100;
 }
 
 .see_more p {
     position: relative;
-    transition: 0.2s ease-in-out;
+
 }
 
 .apartment_container a:hover .see_more{
-    opacity: 1;
+    opacity: 100;
 }
 
 .apartment_container a:hover img {
-    height: 120%;
-    width: 120%;
+    filter: blur(0.5rem);
+    -webkit-filter: blur(0.5rem);
 }
 
 
