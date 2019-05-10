@@ -1,21 +1,13 @@
-{% extends "fasteignasala/../base.html" %}
+{% extends "base.html" %}
 {% block content %}
     <div class="apartment_list">
         <h1 class="text-center pt-3">Allar eignir:</h1>
-        {% for apartment in apartments %}
             <a href="#">
                 <div class="apartment_container">
-
-                    <div class="img_container">
-                        <img src="{% apartment.id.apartmentimage %} %}">
-                    </div>
-                    <div class="apartment_address">{{ apartment.address }}</div>
-                    <div class="apartment_zip">{{ apartment.zip }}</div>
-                    <br>
-                    <p class="description">{{ apartment.description }}</p>
+                    {% for apartment in apartments %}
+                        {% include 'Hus/Eitt_hus.html' with apartment=apartment %}
+                    {% endfor %}
                 </div>
             </a>
-
-        {% endfor %}
     </div>
 {% endblock content %}
