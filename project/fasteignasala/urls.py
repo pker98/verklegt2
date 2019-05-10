@@ -7,5 +7,6 @@ urlpatterns = [
     path('starfsmenn/', views.starfsmenn, name="starfsmenn-home"),
     path('um_okkur/', views.um_okkur, name="um_okkur-home"),
     path('soluskra/', views.soluskra, name="soluskra-home"),
-    path('notandi/', include('notandi.urls'))
+    path('notandi/', include('notandi.urls')),
+    path('<int:id>', views.get_apartm_by_id, name='apartment_details')
 ]
