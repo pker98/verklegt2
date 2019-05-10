@@ -2,9 +2,8 @@
 {% block content %}
     <div class="apartment_list">
         <h1 class="text-center pt-3">Allar eignir:</h1>
-                <div class="apartment_container">
-                    {% for apartment in apartments %}
-                        {% include 'hus/Eitt_hus.html' with apartment=apartment %}
-                    {% endfor %}
-                </div></div>
+            {% for apartment in apartments %}
+                {% include 'hus/Eitt_hus.html' with apartment=apartment %}
+            {% endfor %}
+    </div>
 {% endblock content %}

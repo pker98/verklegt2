@@ -1,0 +1,119 @@
+html {
+    font-family: Roboto, sans-serif;
+}
+h1 {
+    font-size: 1.5rem;
+}
+
+.apartment_list a{
+    color: black;
+    text-decoration: none;
+}
+
+.apartment_list a:hover .apartment_container {
+    border-color: rgba(0, 0, 0, 0.36);
+    border-width: 0.1rem;
+    border-style: solid;
+    border-radius: 0.2rem;
+}
+
+
+.apartment_address {
+    font-size: 1.7rem;
+    font-weight: lighter;
+    text-align: left;
+}
+
+.apartment_zip {
+    font-size: 1.7rem;
+    font-weight: bold;
+    float:right;
+}
+
+.apartment_list {
+    margin: auto;
+    text-align: center;
+}
+.description {
+    text-align: justify;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+}
+
+.crop {
+    height: 14rem;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+
+}
+
+.apartment_container .crop img {
+    height: 14rem;
+    width: 100%;
+    transition: 0.2s ease-in-out;
+    opacity: 100;
+}
+
+
+
+.apartment_container {
+    display: inline-block;
+    margin: 0.2rem;
+    padding: 1.3rem;
+    width: 21rem;
+    height: 27rem;
+    background-color: whitesmoke;
+    border-color: lightgrey;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-radius: 0.2rem;
+}
+
+.apartment_container .price {
+    color: snow;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 0.5rem;
+}
+
+.price_container {
+    font-size: 1.3rem;
+    font-weight: bold;
+    background-color: #F5BB63;
+    display: block;
+}
+
+.apartment_container .info {
+    width: 90%;
+    margin: 0.5rem auto ;
+    display: flex;
+    justify-content: space-between;
+}
+
+.see_more {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    transform: translateX(50%) translateY(5rem);
+    opacity: 0;
+}
+
+.see_more p {
+    position: relative;
+    transition: 0.2s ease-in-out;
+}
+
+.apartment_container a:hover .see_more{
+    opacity: 1;
+}
+
+.apartment_container a:hover img {
+    height: 120%;
+    width: 120%;
+}
+
+
+
