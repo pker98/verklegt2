@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2>{{ apartment.address }}</h2>
-    <p>{{ apartment.price }}</p>
-    <p>{{ apartment.num_bath_room }}</p>
-    {% for apartment_image in apartment.apartmentimage_set.all %}
-        <img src="{{ apartment_image.image }}" class="apartment_image">
-    {% endfor %}
+    <div style='margin-top: 1rem'>
+        <h1>{{ apartment.address }}</h1>
+        <p>{{ apartment.price }}</p>
+        <p>{{ apartment.num_bath_room }}</p>
+        {% for apartment_image in apartment.apartmentimage_set.all %}
+            <div class="crop">
+                <img src="{{ apartment_image.image }}" class="apartment-img"/>
+            </div>
+
+        {% endfor %}
+    </div>
+
 {% endblock %}

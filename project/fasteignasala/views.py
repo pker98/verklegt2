@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
 
-from fasteignasala.forms.husnaediform import HusnaediCreateForm
 from fasteignasala.models import Apartment
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
