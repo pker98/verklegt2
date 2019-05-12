@@ -5,17 +5,14 @@ from django.contrib.auth.views import LoginView
 
 
 def nyskraning(request):
-    if request == "POST":
-        form = UserCreationForm(request.POST)
+    if request.method == "POST":
+        form = UserCreationForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('forsida/')
-    else:
-        form = UserCreationForm()
-
-        context = {'form' : form, 'title' : 'Nýskráning'}
-
-        return render(request, 'notandi/nyskraning.html', context)
+            return redirect('innskraning')
+    form = UserCreationForm()
+    context = {'form': form, 'title': 'Nýskráning'}
+    return render(request, 'notandi/nyskraning.html', context)
 
 def innskraning(request):
     form = LoginView()
