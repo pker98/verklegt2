@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from fasteignasala.forms.husnaediform import HusnaediCreateForm
+from fasteignasala.forms.husnaediform import HusnaediCreateForm, HusnaediUpdateForm
 from fasteignasala.models import Apartment, ApartmentImage
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
@@ -33,6 +33,19 @@ def delete_apartment(request, id):
     apartment.delte()
     return redirect('home')
 
+def update_apartment(request, id):
+    instance = get_object_or_404(Apartment, pk=id)
+    if request.method == 'POST':
+        form = HusnaediUpdateForm(data=request.POST, instance=instance)
+        if form.is_valid():
+            form.save()
+            return redirect('husnaedi_details', id=id)
+    else:
+        form = HusnaediUpdateForm(instance=instance)
+    return render(request, 'hus/breyta_husnaedi.html', {
+        'form': form,
+        'id': id
+    })
 
 def um_okkur(request):
     return render(request, 'um_okkur/um_okkur.html', {"title": "Um okkur"})
