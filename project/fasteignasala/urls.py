@@ -10,4 +10,6 @@ urlpatterns = [
     path('notandi/', include('notandi.urls')),
     path('<int:id>', views.get_apartm_by_id, name='apartment_details'),
     path('nytt_husnaedi/', views.create_apartment, name='nytt_husnaedi'),
+    path('eyda_husnaedi/<int:id>', views.delete_apartment, name='eyda_husnaedi'),
+    path('breyta_husnaedi/<int:id>', views.update_apartment, name='breyta_husnaedi')
 ]
