@@ -1,11 +1,31 @@
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
-from fasteignasala.forms.husnaediform import HusnaediCreateForm, HusnaediUpdateForm
+# from fasteignasala.forms.husnaediform import HusnaediCreateForm, HusnaediUpdateForm
 from fasteignasala.models import Apartment, ApartmentImage
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
 
 def home(request):
-    context = {"apartments" : Apartment.objects.all()}
+    if 'search_filter' in request.GET:
+        search_filter = request.GET['search_filter']
+        apartments = [{
+            'id': x.id,
+            'address': x.address,
+            'price': x.price,
+            'fire_insurance': x.fire_insurance,
+            'estimated_value': x.estimated_value,
+            'type': x.type,
+            'size': x.size,
+            'num_rooms': x.num_rooms,
+            'num_bed_room': x.num_bed_room,
+            'num_bath_room': x.num_bath_room,
+            'description': x.description,
+            'town': x.town,
+            'zip': x.zip,
+            'first_image': x.apartmentimage_set.first().image
+        } for x in Apartment.objects.filter(address__contains=search_filter).order_by('address')]
+        return JsonResponse({ 'data': apartments })
+    context = {"apartments" : Apartment.objects.all().order_by('address')}
     return render(request, 'forsida/home.html', context)
 
 def get_apartm_by_id(request, id):
@@ -22,15 +42,15 @@ def create_apartment(request):
             apartment_image.save()
             return redirect('home')
 
-    else:
-        form = HusnaediCreateForm()
+    #else:
+        # form = HusnaediCreateForm()
     return render(request, 'hus/nytt_husnaedi.html', {
         'form': form
     })
 
 def delete_apartment(request, id):
-    apartment = get_object_or_404(Apartment, id=pk)
-    apartment.delte()
+    apartment = get_object_or_404(Apartment, pk=id)
+    apartment.delete()
     return redirect('home')
 
 def update_apartment(request, id):
@@ -40,8 +60,8 @@ def update_apartment(request, id):
         if form.is_valid():
             form.save()
             return redirect('husnaedi_details', id=id)
-    else:
-        form = HusnaediUpdateForm(instance=instance)
+    # else:
+    #    form = HusnaediUpdateForm(instance=instance)
     return render(request, 'hus/breyta_husnaedi.html', {
         'form': form,
         'id': id
