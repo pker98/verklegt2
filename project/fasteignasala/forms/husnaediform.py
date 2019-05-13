@@ -5,7 +5,7 @@ from fasteignasala.models import Apartment
 class HusnaediUpdateForm(ModelForm):
     class Meta:
         model = Apartment
-        exclude = [ 'id' ]
+        exclude = ['id']
         widgets = {
             'address': widgets.TextInput(attrs={ 'class': 'form-control' }),
             'price': widgets.NumberInput(attrs={ 'class': 'form-control' }),

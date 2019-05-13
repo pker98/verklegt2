@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
-# from fasteignasala.forms.husnaediform import HusnaediCreateForm, HusnaediUpdateForm
 from fasteignasala.models import Apartment, ApartmentImage
+# from fasteignasala.forms.husnaediform import HusnaediCreateForm, HusnaediUpdateForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
 
@@ -41,8 +41,7 @@ def create_apartment(request):
             apartment_image = ApartmentImage(image=request.POST['image'], apartment=apartment)
             apartment_image.save()
             return redirect('home')
-
-    #else:
+    else:
         form = HusnaediCreateForm()
     return render(request, 'hus/nytt_husnaedi.html', {
         'form': form
