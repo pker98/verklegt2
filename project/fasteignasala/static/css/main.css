@@ -57,8 +57,9 @@ h2 {
 
 .search-input > div {
     margin: auto;
-    text-align: center;
     padding: 2rem;
+    width: 100%;
+    text-align: center;
 }
 
 .search-input {
@@ -75,11 +76,14 @@ h2 {
 .orange-background {
     background-color: #F5BB63;
 }
-
+.slider-container input {
+    width: 15%;
+}
 
 .slider {
     width: 50%;
-    margin: auto;
+    margin: 0 1rem;
+    display: inline-block;
 }
 .apartment_container {
     display: inline-block;
