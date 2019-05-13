@@ -55,6 +55,21 @@ h2 {
     opacity: 100;
 }
 
+.input-group div {
+    margin: 2rem;
+    text-align: center;
+}
+
+
+.slider-container {
+    display: block;
+    width: 100%;
+}
+
+#slider {
+    width:30rem;
+    margin: auto;
+}
 .apartment_container {
     display: inline-block;
     margin: 0.2rem;
