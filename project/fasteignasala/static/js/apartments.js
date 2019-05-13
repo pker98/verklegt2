@@ -50,6 +50,7 @@ $(document).ready(function() {
         range: true,
         min: 0,
         max: 500,
+        step: 10,
         values: [ 0, 500 ],
         slide: function( event, ui ) {
             min.html(ui.values[0] + " m<sup>2</sup>")
@@ -67,11 +68,11 @@ $(document).ready(function() {
     $( "#slider2" ).slider({
         range: true,
         min: 0,
-        max: 500000000,
-        values: [ 0, 500000000 ],
+        max: 200,
+        values: [ 0, 200],
         slide: function( event, ui ) {
-            min.html(ui.values[0] + " kr.")
-            max.html(ui.values[1] + " kr.")
+            min.html(ui.values[0] + " milljónir")
+            max.html(ui.values[1] + " milljónir")
             }
         });
   } );
