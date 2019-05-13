@@ -13,11 +13,7 @@ class HusnaediUpdateForm(forms.ModelForm):
             'estimated_value': widgets.NumberInput(attrs={ 'class': 'form-control'}),
             'zip': widgets.NumberInput(attrs={'class': 'form-control' }),
             'town': widgets.TextInput(attrs={ 'class': 'form-control' }),
-<<<<<<< HEAD
-            'type': widgets.RadioSelect(choices={('1', 'Einbýlishús'),('2','Tvíbýlishús'),('3', 'Fjölbýlishús')}),
-=======
-            'type': widgets.Select(choices={('1', 'Einbýlishús'),('2','Tvíbýlishús'),('3', 'Fjölbýlishús')}),
->>>>>>> 1be6e1fcb0de78fd22d18266a53fa02f0ec025f0
+            'type': widgets.Select(choices={('Einbýlishús', 'Einbýlishús'),('Tvíbýlishús','Tvíbýlishús'),('Fjölbýlishús', 'Fjölbýlishús')}),
             'size': widgets.NumberInput(attrs={ 'class': 'form-control' }),
             'num_rooms': widgets.NumberInput(attrs={ 'class': 'form-control' }),
             'num_bed_room': widgets.NumberInput(attrs={ 'class': 'form-control' }),
@@ -52,7 +48,7 @@ class HusnaediCreateForm(forms.ModelForm):
             'estimated_value': widgets.NumberInput(attrs={ 'class': 'form-control'}),
             'zip': widgets.NumberInput(attrs={'class': 'form-control' }),
             'town': widgets.TextInput(attrs={ 'class': 'form-control' }),
-            'type': widgets.Select(choices={('1', 'Einbýlishús'),('2','Tvíbýlishús'),('3', 'Fjölbýlishús')}),
+            'type': widgets.Select(choices={('Einbýlishús', 'Einbýlishús'),('Tvíbýlishús','Tvíbýlishús'),('Fjölbýlishús', 'Fjölbýlishús')}),
             'size': widgets.NumberInput(attrs={ 'class': 'form-control' }),
             'num_rooms': widgets.NumberInput(attrs={ 'class': 'form-control' }),
             'num_bed_room': widgets.NumberInput(attrs={ 'class': 'form-control' }),
