@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
     <h2>Þinn aðgangur</h2>
+    <!--{% if form.profile_img is not_empty %} {% endif %}-->
     <img class="rounded-circle account-image" src="{{ form.profile_img }}">
+
     <p>Nafn: {{ user.username }}</p>
     <p>Netfang: {{ user.email }}</p>
     <form class="form form-horizontal" method="POST">
