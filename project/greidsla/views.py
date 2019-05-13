@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def greidsla(request):
+    return render(request, 'greidsluferli/greidsla.html', {"title": "Greiðsluferli"})
