@@ -88,44 +88,51 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+    var min = $(".min_1");
+    var max = $(".max_1");
     $( "#slider1" ).slider({
         range: true,
         min: 0,
         max: 500,
+        step: 10,
         values: [ 0, 500 ],
         slide: function( event, ui ) {
-            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            min.html(ui.values[0] + " m<sup>2</sup>")
+            max.html(ui.values[1] + " m<sup>2</sup>")
             }
         });
-    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
   } );
 
+
+
+
 $(document).ready(function() {
+    var min = $(".min_2");
+    var max = $(".max_2");
     $( "#slider2" ).slider({
         range: true,
         min: 0,
-        max: 500000000,
-        values: [ 0, 500000000 ],
+        max: 200,
+        values: [ 0, 200],
         slide: function( event, ui ) {
-            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            min.html(ui.values[0] + " milljónir")
+            max.html(ui.values[1] + " milljónir")
             }
         });
-    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
   } );
 
 $(document).ready(function() {
+    var min = $(".min_3");
+    var max = $(".max_3");
     $( "#slider3" ).slider({
         range: true,
         min: 0,
         max: 10,
         values: [ 0, 10 ],
         slide: function( event, ui ) {
-            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            min.html(ui.values[0] + " herbergi")
+            max.html(ui.values[1] + " herbergi")
             }
         });
-    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
   } );
 
