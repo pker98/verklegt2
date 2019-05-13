@@ -52,6 +52,7 @@ $(document).ready(function() {
         max: 500,
         step: 10,
         values: [ 0, 500 ],
+
         slide: function( event, ui ) {
             min.html(ui.values[0] + " m<sup>2</sup>")
             max.html(ui.values[1] + " m<sup>2</sup>")
