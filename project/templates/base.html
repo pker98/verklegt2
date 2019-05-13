@@ -35,8 +35,8 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'nytt_husnaedi' %}">Nýtt Húsnæði</a>
+                <li>
+                    <a class="nav-link" href="{% url 'nytt_husnaedi' %}">Nýskrá húsnæði</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'minar_sidur' %}">Mínar síður</a>
