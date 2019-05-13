@@ -1,7 +1,8 @@
 from django.http import JsonResponse
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
+
+from fasteignasala.forms.husnaediform import HusnaediCreateForm, HusnaediUpdateForm
 from fasteignasala.models import Apartment, ApartmentImage
-# from fasteignasala.forms.husnaediform import HusnaediCreateForm, HusnaediUpdateForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
 
@@ -40,7 +41,7 @@ def create_apartment(request):
             apartment = form.save()
             apartment_image = ApartmentImage(image=request.POST['image'], apartment=apartment)
             apartment_image.save()
-            return redirect('home')
+            return redirect('fasteignasala-home')
     else:
         form = HusnaediCreateForm()
     return render(request, 'hus/nytt_husnaedi.html', {
@@ -50,15 +51,15 @@ def create_apartment(request):
 def delete_apartment(request, id):
     apartment = get_object_or_404(Apartment, pk=id)
     apartment.delete()
-    return redirect('home')
+    return redirect(reverse('fasteignasala-home'))
 
 def update_apartment(request, id):
     instance = get_object_or_404(Apartment, pk=id)
     if request.method == 'POST':
-        form = HusnaediUpdateForm(data=request.POST, instance=instance)
+        form = HusnaediUpdateForm(data='request.POST', instance=instance)
         if form.is_valid():
             form.save()
-            return redirect('husnaedi_details', id=id)
+            return redirect(reverse('fasteignasala-home', pk=id))
     else:
         form = HusnaediUpdateForm(instance=instance)
     return render(request, 'hus/breyta_husnaedi.html', {

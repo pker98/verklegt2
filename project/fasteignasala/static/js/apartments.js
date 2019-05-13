@@ -7,7 +7,8 @@ $(document).ready(function() {
             type: 'GET',
             success: [ function(resp) {
                 var newHtml = resp.data.map(d => {
-                    return `<div class="apartment_container">
+                    return `<h2 class="text-center pt-3">Leitarniðurstöður:</h2>
+                            <div class="apartment_container">
                             <a href="/${d.id}">
                             <div class="see_more">
                             <p>Skoða nánar</p>
