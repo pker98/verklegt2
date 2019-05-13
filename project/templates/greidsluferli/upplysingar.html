@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form class="form form-horizontal" action="{% url 'greidsla' %}" method="post">
+    {% csrf_token %}
+        Korthafi:<br>
+        <input type="text" name="cardholder_name" placeholder="Jón Jónsson"><br>
+        Kortanúmer:<br>
+        <input type="text" name="cardnumber" placeholder="1111-2222-3333-4444"><br>
+        Öryggisnúmer (CCV):<br>
+        <input type="text" name="ccv" placeholder="123"><br>
+        Gildistími:<br>
+        <input type="text" name="date_of_expiration" placeholder="MM/YY"><br>
+
+    <input type="submit" value="Kaupa" class="btn btn-primary pull-right" style="clear:both; margin:10px 0" />
+    </form>
+
+{% endblock %}
