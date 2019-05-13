@@ -1,7 +1,10 @@
 $(document).ready(function() {
+
     $('#search-button').on('click', function(e) {
         e.preventDefault();
         var searchText = $('#search-box').val();
+        var minSize = $('#minPrice').val();
+        var maxSize = $('#maxPrice').val();
         $.ajax({
             url: '?search_filter=' + searchText,
             type: 'GET',
@@ -31,7 +34,7 @@ $(document).ready(function() {
                             </div>
                             </div>`
                 });
-                $('.apartment_list').html(newHtml.join(''));
+                $('.apartment_list').html('<h2 class="text-center pt-3 pb-3">Niðurstöður:</h2>' + newHtml.join(''));
                 $('#search-box').val('');
             }],
             error: function (xhr, status, error) {
