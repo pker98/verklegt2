@@ -23,7 +23,7 @@ def home(request):
             'town': x.town,
             'zip': x.zip,
             'first_image': x.apartmentimage_set.first().image
-        } for x in Apartment.objects.filter(address__contains=search_filter).order_by('address')]
+        } for x in Apartment.objects.filter(address__icontains=search_filter).order_by('address')]
         return JsonResponse({ 'data': apartments })
     context = {"apartments" : Apartment.objects.all().order_by('address')}
     return render(request, 'forsida/home.html', context)
@@ -43,7 +43,7 @@ def create_apartment(request):
             return redirect('home')
 
     #else:
-        # form = HusnaediCreateForm()
+        form = HusnaediCreateForm()
     return render(request, 'hus/nytt_husnaedi.html', {
         'form': form
     })
@@ -60,8 +60,8 @@ def update_apartment(request, id):
         if form.is_valid():
             form.save()
             return redirect('husnaedi_details', id=id)
-    # else:
-    #    form = HusnaediUpdateForm(instance=instance)
+    else:
+        form = HusnaediUpdateForm(instance=instance)
     return render(request, 'hus/breyta_husnaedi.html', {
         'form': form,
         'id': id
