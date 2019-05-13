@@ -21,7 +21,7 @@ class HusnaediUpdateForm(forms.ModelForm):
             'description': widgets.TextInput(attrs={ 'class': 'form-control' })
         }
         labels = {
-            'address': 'Húsnæði',
+            'address': 'Heimilisfang',
             'price': 'Verð',
             'fire_insurance': 'Brunabótamat',
             'estimated_value': 'Fasteignamat',
@@ -56,7 +56,7 @@ class HusnaediCreateForm(forms.ModelForm):
             'description': widgets.TextInput(attrs={ 'class': 'form-control' })
         }
         labels = {
-            'address': 'Húsnæði',
+            'address': 'Heimilisfang',
             'price': 'Verð',
             'fire_insurance': 'Brunabótamat',
             'estimated_value': 'Fasteignamat',
