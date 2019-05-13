@@ -2,12 +2,27 @@
 {% block content %}
     <div class="input-group">
         <form class="search-input">
-            <div>
-                <p style="float:left" class="d-inline">Stærð:</p>
+            <div style="width: 100%">
+                <p class="d-inline">Stærð:</p>
                 <div class="slider-container d-inline">
-                    <div id="slider"></div>
+                    <div id="slider1" class="slider"></div>
                 </div>
             </div>
+
+            <div style="width: 100%">
+                <p class="d-inline">Verð:</p>
+                <div class="slider-container d-inline">
+                    <div id="slider2" class="slider"></div>
+                </div>
+            </div>
+
+            <div style="width: 100%">
+                <p class="d-inline">Herbergi:</p>
+                <div class="slider-container d-inline">
+                    <div id="slider3" class="slider"></div>
+                </div>
+            </div>
+
 
 
             <input type="search" class="form-control" id="search-box" placeholder="Leita eftir heimilisfangi...">

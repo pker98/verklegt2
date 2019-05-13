@@ -56,13 +56,14 @@ h2 {
 }
 
 .search-input > div {
-    margin: 2rem;
+    margin: auto;
     text-align: center;
+    padding: 2rem;
 }
 
 .search-input {
     width: 100%;
-    padding: 2rem;
+    padding: 0 2rem;
     background-color: whitesmoke;
     border-color: lightgrey;
     border-width: 0.1rem;
@@ -76,7 +77,7 @@ h2 {
 }
 
 
-#slider {
+.slider {
     width: 50%;
     margin: auto;
 }
