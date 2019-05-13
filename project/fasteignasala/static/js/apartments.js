@@ -7,8 +7,7 @@ $(document).ready(function() {
             type: 'GET',
             success: [ function(resp) {
                 var newHtml = resp.data.map(d => {
-                    return `<h2 class="text-center pt-3">Leitarniðurstöður:</h2>
-                            <div class="apartment_container">
+                    return `<div class="apartment_container">
                             <a href="/${d.id}">
                             <div class="see_more">
                             <p>Skoða nánar</p>
@@ -73,3 +72,44 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 }
+$(document).ready(function() {
+    $( "#slider1" ).slider({
+        range: true,
+        min: 0,
+        max: 500,
+        values: [ 0, 500 ],
+        slide: function( event, ui ) {
+            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            }
+        });
+    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+  } );
+
+$(document).ready(function() {
+    $( "#slider2" ).slider({
+        range: true,
+        min: 0,
+        max: 500000000,
+        values: [ 0, 500000000 ],
+        slide: function( event, ui ) {
+            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            }
+        });
+    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+  } );
+
+$(document).ready(function() {
+    $( "#slider3" ).slider({
+        range: true,
+        min: 0,
+        max: 10,
+        values: [ 0, 10 ],
+        slide: function( event, ui ) {
+            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            }
+        });
+    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+  } );

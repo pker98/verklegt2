@@ -55,6 +55,36 @@ h2 {
     opacity: 100;
 }
 
+.search-input > div {
+    margin: auto;
+    padding: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0 2rem;
+    background-color: whitesmoke;
+    border-color: lightgrey;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-radius: 0.2rem;
+}
+
+
+.orange-background {
+    background-color: #F5BB63;
+}
+.slider-container input {
+    width: 15%;
+}
+
+.slider {
+    width: 50%;
+    margin: 0 1rem;
+    display: inline-block;
+}
 .apartment_container {
     display: inline-block;
     margin: 0.2rem;

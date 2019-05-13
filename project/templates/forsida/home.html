@@ -1,15 +1,47 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="input-group">
+        <form class="search-input">
+            <div style="width: 100%">
+                <div class="slider-container">
+                    <p>Stærð:</p>
+                    <input style="display: inline-block" type="text" id="minSize"/>
+                    <div id="slider1" class="slider"></div>
+                    <input style="display: inline-block" type="text" id="maxSize"/>
+                </div>
+            </div>
 
-        <input type="search" class="form-control" id="search-box" placeholder="Leita eftir heimilisfangi...">
-        <div class="input-group-btn">
-            <button type="button" id="search-button" class="btn btn-default">Leita</button>
-        </div>
+            <div style="width: 100%">
+                <div class="slider-container">
+                    <p>Verð:</p>
+                    <input style="display: inline-block" type="text" id="minPrice"/>
+                    <div id="slider2" class="slider"></div>
+                    <input style="display: inline-block" type="text" id="maxPrice"/>
+                </div>
+            </div>
 
+            <div style="width: 100%">
+                <div class="slider-container">
+                    <p>Herbergi:</p>
+                    <input style="display: inline-block" type="text" id="minRooms"/>
+                    <div id="slider3" class="slider"></div>
+                    <input style="display: inline-block" type="text" id="maxRooms"/>
+                </div>
+            </div>
+
+
+
+
+            <input type="search" class="form-control" id="search-box" placeholder="Leita eftir heimilisfangi...">
+            <div class="input-group-btn">
+                <button type="button" id="search-button" class="btn btn-default orange-background">Leita</button>
+            </div>
+        </form>
     </div>
+
+
     <div class="apartment_list">
-        <h2 class="text-center pt-3">Allar eignir:</h2>
+        <h2 class="text-center pt-3 pb-3">Allar eignir:</h2>
             {% for apartment in apartments %}
                 {% include 'hus/Eitt_hus.html' with apartment=apartment %}
             {% endfor %}

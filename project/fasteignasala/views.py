@@ -1,6 +1,5 @@
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-
 from fasteignasala.forms.husnaediform import HusnaediCreateForm, HusnaediUpdateForm
 from fasteignasala.models import Apartment, ApartmentImage
 from django.contrib.auth.forms import UserCreationForm
@@ -35,12 +34,11 @@ def get_apartm_by_id(request, id):
     'apartment': get_object_or_404(Apartment, pk=id)
     })
 
-
 @login_required
 @permission_required('apartment.can_add_appartment', raise_exception=True)
 def create_apartment(request):
     if request.method == 'POST':
-        form = HusnaediCreateForm(data='request.POST')
+        form = HusnaediCreateForm(data=request.POST)
         if form.is_valid():
             apartment = form.save()
             apartment_image = ApartmentImage(image=request.POST['image'], apartment=apartment)
@@ -52,7 +50,6 @@ def create_apartment(request):
         'form': form
     })
 
-
 @login_required
 @permission_required('apartment.can_delete_appartment', raise_exception=True)
 def delete_apartment(request, id):
@@ -60,16 +57,15 @@ def delete_apartment(request, id):
     apartment.delete()
     return redirect(reverse('fasteignasala-home'))
 
-
 @login_required
 @permission_required('apartment.can_change_appartment', raise_exception=True)
 def update_apartment(request, id):
     instance = get_object_or_404(Apartment, pk=id)
     if request.method == 'POST':
-        form = HusnaediUpdateForm(data='request.POST', instance=instance)
+        form = HusnaediUpdateForm(data=request.POST, instance=instance)
         if form.is_valid():
             form.save()
-            return redirect(reverse('fasteignasala-home', pk=id))
+            return redirect('apartment_details', id=id)
     else:
         form = HusnaediUpdateForm(instance=instance)
     return render(request, 'hus/breyta_husnaedi.html', {
