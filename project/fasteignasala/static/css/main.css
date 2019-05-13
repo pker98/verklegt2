@@ -76,8 +76,9 @@ h2 {
 .orange-background {
     background-color: #F5BB63;
 }
-.slider-container input {
+.value {
     width: 15%;
+    display: inline-block;
 }
 
 .slider {
