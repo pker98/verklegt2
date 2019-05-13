@@ -5,6 +5,7 @@ from fasteignasala.forms.husnaediform import HusnaediCreateForm, HusnaediUpdateF
 from fasteignasala.models import Apartment, ApartmentImage
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.decorators import login_required, permission_required
 
 def home(request):
     if 'search_filter' in request.GET:
@@ -34,6 +35,9 @@ def get_apartm_by_id(request, id):
     'apartment': get_object_or_404(Apartment, pk=id)
     })
 
+
+@login_required
+@permission_required('apartment.can_add_appartment', raise_exception=True)
 def create_apartment(request):
     if request.method == 'POST':
         form = HusnaediCreateForm(data='request.POST')
@@ -48,11 +52,17 @@ def create_apartment(request):
         'form': form
     })
 
+
+@login_required
+@permission_required('apartment.can_delete_appartment', raise_exception=True)
 def delete_apartment(request, id):
     apartment = get_object_or_404(Apartment, pk=id)
     apartment.delete()
     return redirect(reverse('fasteignasala-home'))
 
+
+@login_required
+@permission_required('apartment.can_change_appartment', raise_exception=True)
 def update_apartment(request, id):
     instance = get_object_or_404(Apartment, pk=id)
     if request.method == 'POST':
