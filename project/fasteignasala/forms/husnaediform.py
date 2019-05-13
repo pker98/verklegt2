@@ -13,7 +13,7 @@ class HusnaediUpdateForm(forms.ModelForm):
             'estimated_value': widgets.NumberInput(attrs={ 'class': 'form-control'}),
             'zip': widgets.NumberInput(attrs={'class': 'form-control' }),
             'town': widgets.TextInput(attrs={ 'class': 'form-control' }),
-            'type': widgets.Select(attrs={ 'class': 'form-control' }),
+            'type': widgets.RadioSelect(choices={('1', 'Einbýlishús'),('2','Tvíbýlishús'),('3', 'Fjölbýlishús')}),
             'size': widgets.NumberInput(attrs={ 'class': 'form-control' }),
             'num_rooms': widgets.NumberInput(attrs={ 'class': 'form-control' }),
             'num_bed_room': widgets.NumberInput(attrs={ 'class': 'form-control' }),
