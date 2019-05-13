@@ -24,6 +24,7 @@ class Apartment(models.Model):
     description = models.CharField(max_length=600)
     zip = models.CharField(max_length=3, blank=False)
     town = models.CharField(max_length=255, blank=False)
+
     def __str__(self):
         return self.address
 
@@ -31,6 +32,7 @@ class Apartment(models.Model):
 class ApartmentImage(models.Model):
     image = models.CharField(max_length=999)
     apartment = models.ForeignKey(Apartment, on_delete=models.CASCADE)
+
     def __str__(self):
         return self.image
 

@@ -3,15 +3,16 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
 from notandi.models import Profile
 from notandi.forms.profile_form import Profile_form
+from .forms.profile_form import RegistrationForm
 
 
 def nyskraning(request):
     if request.method == "POST":
-        form = UserCreationForm(data=request.POST)
+        form = RegistrationForm(data=request.POST)
         if form.is_valid():
             form.save()
             return redirect('innskraning')
-    form = UserCreationForm()
+    form = RegistrationForm()
     context = {'form': form, 'title': 'Nýskráning'}
     return render(request, 'notandi/nyskraning.html', context)
 
