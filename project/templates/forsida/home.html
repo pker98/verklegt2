@@ -3,33 +3,70 @@
     <div class="input-group">
         <form class="search-input">
             <div style="width: 100%">
-                <p class="d-inline">Stærð:</p>
-                <div class="slider-container d-inline">
+                <div class="slider-container">
+                    <p>Stærð:</p>
+                    <div class="min_1 value" id="minPrice">0 m<sup>2</sup></div>
                     <div id="slider1" class="slider"></div>
+                    <div class="max_1 value" id="maxPrice">500 m<sup>2</sup></div>
                 </div>
             </div>
 
             <div style="width: 100%">
-                <p class="d-inline">Verð:</p>
-                <div class="slider-container d-inline">
+                <div class="slider-container">
+                    <p>Verð:</p>
+                    <div class="min_2 value" id="minPrice">0 milljónir</div>
                     <div id="slider2" class="slider"></div>
+                    <div class="max_2 value" id="maxPrice">200 milljónir</div>
                 </div>
             </div>
 
             <div style="width: 100%">
-                <p class="d-inline">Herbergi:</p>
-                <div class="slider-container d-inline">
+                <div class="slider-container">
+                    <p>Herbergi:</p>
+                    <div class="min_3 value" id="minPrice">0 herbergi</div>
                     <div id="slider3" class="slider"></div>
+                    <div class="max_3 value" id="maxPrice">10 herbergi</div>
+                </div>
+            </div>
+            <div class="drop-downs">
+                      <div class="dropdown show d-inline">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Svæði
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <ul class="custom-control custom-radio">
+                            <li><input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
+                                <label class="custom-control-label" for="defaultUnchecked">Default unchecked</label>
+                            </li>
+                            <li><input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
+                                <label class="custom-control-label" for="defaultUnchecked">Default unchecked</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dropdown show d-inline">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tegund
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">101</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
                 </div>
             </div>
 
-            <input type="search" class="form-control" id="search-box" placeholder="Leita eftir heimilisfangi...">
+
+            <div>
+                <input type="search" class="form-control" id="search-box" placeholder="Leita eftir heimilisfangi...">
+            </div>
             <div class="input-group-btn">
                 <button type="button" id="search-button" class="btn btn-default orange-background">Leita</button>
             </div>
         </form>
-            <button type="button" id="filter-price-button" class="btn btn-default orange-background">Raða eftir verði</button>
     </div>
+
 
     <div class="apartment_list">
         <h2 class="text-center pt-3 pb-3">Allar eignir:</h2>
