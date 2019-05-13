@@ -10,7 +10,7 @@
         {% for apartment_image in apartment.apartmentimage_set.all %}
         <!-- Full-width images with number and caption text -->
             <div class="mySlides fade">
-                <div class="numbertext">{{ forloop.counter }}/5</div>
+                <div class="numbertext"></div>
                 <img src="{{ apartment_image.image }}" style="width:100%">
                 <div class="text"></div>
             </div>
@@ -27,11 +27,13 @@
     {% for apartment_image in apartment.apartmentimage_set.all %}
         <span class="dot" onclick="currentSlide({{ forloop.counter }})"></span>
     {% endfor %}
-    <a href="{% url 'greidsla' %}" class='block btn btn-primary'>Kaupa húsnæði</a>
     </div>
+    <a href="{% url 'greidsla' %}" class='block btn btn-primary'>Kaupa húsnæði</a>
+    <br>
     
     {%  if user.is_superuser %}
     <a href="{% url 'eyda_husnaedi' apartment.id %}" class='block btn btn-primary'>Eyða húsnæði</a>
     <a href="{% url 'breyta_husnaedi' apartment.id %}" class='block btn btn-primary'>Breyta húsnæði</a>
     {% endif %}
+    <br>
 {% endblock %}
