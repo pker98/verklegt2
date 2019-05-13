@@ -2,7 +2,7 @@ from django.forms import ModelForm, widgets
 from django import forms
 from fasteignasala.models import Apartment
 
-class HusnaediUpdateForm(ModelForm):
+class HusnaediUpdateForm(forms.ModelForm):
     class Meta:
         model = Apartment
         exclude = ['id']
@@ -21,7 +21,7 @@ class HusnaediUpdateForm(ModelForm):
             'description': widgets.TextInput(attrs={ 'class': 'form-control' })
         }
 
-class HusnaediCreateForm(ModelForm):
+class HusnaediCreateForm(forms.ModelForm):
     image = forms.CharField(required=True, widget=forms.TextInput(attrs={ 'class': 'form-control' }))
     class Meta:
         model = Apartment
