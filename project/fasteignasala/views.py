@@ -26,7 +26,7 @@ def home(request):
             'first_image': x.apartmentimage_set.first().image
         } for x in Apartment.objects.filter(address__icontains=search_filter).order_by('address')]
         return JsonResponse({ 'data': apartments })
-    context = {"apartments" : Apartment.objects.all().order_by('address')}
+    context = {"apartments" : Apartment.objects.all()}
     return render(request, 'forsida/home.html', context)
 
 def get_apartm_by_id(request, id):
