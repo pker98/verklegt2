@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Þinn aðgangur</h2>
+    <img class="rounded-circle account-image" src="{{ form.profile_img }}">
+    <p>Nafn: {{ user.username }}</p>
+    <p>Netfang: {{ user.email }}</p>
+    <form class="form form-horizontal" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Update"/>
+    </form>
+{% endblock content %}
