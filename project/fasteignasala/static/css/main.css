@@ -55,19 +55,29 @@ h2 {
     opacity: 100;
 }
 
-.input-group div {
+.search-input > div {
     margin: 2rem;
     text-align: center;
 }
 
-
-.slider-container {
-    display: block;
+.search-input {
     width: 100%;
+    padding: 2rem;
+    background-color: whitesmoke;
+    border-color: lightgrey;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-radius: 0.2rem;
 }
 
+
+.orange-background {
+    background-color: #F5BB63;
+}
+
+
 #slider {
-    width:30rem;
+    width: 50%;
     margin: auto;
 }
 .apartment_container {

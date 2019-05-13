@@ -1,18 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="input-group">
-        <div class="slider-container">
-            <div id="slider"></div>
-        </div>
+        <form class="search-input">
+            <div>
+                <p style="float:left" class="d-inline">Stærð:</p>
+                <div class="slider-container d-inline">
+                    <div id="slider"></div>
+                </div>
+            </div>
 
-        <input type="search" class="form-control" id="search-box" placeholder="Leita eftir heimilisfangi...">
-        <div class="input-group-btn">
-            <button type="button" id="search-button" class="btn btn-default">Leita</button>
-        </div>
 
+            <input type="search" class="form-control" id="search-box" placeholder="Leita eftir heimilisfangi...">
+            <div class="input-group-btn">
+                <button type="button" id="search-button" class="btn btn-default orange-background">Leita</button>
+            </div>
+        </form>
     </div>
+
+
     <div class="apartment_list">
-        <h2 class="text-center pt-3">Allar eignir:</h2>
+        <h2 class="text-center pt-3 pb-3">Allar eignir:</h2>
             {% for apartment in apartments %}
                 {% include 'hus/Eitt_hus.html' with apartment=apartment %}
             {% endfor %}
