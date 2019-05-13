@@ -56,10 +56,10 @@ def delete_apartment(request, id):
 def update_apartment(request, id):
     instance = get_object_or_404(Apartment, pk=id)
     if request.method == 'POST':
-        form = HusnaediUpdateForm(data=request.POST, instance=instance)
+        form = HusnaediUpdateForm(data='request.POST', instance=instance)
         if form.is_valid():
             form.save()
-            return redirect('fasteignasala-home', pk=id)
+            return redirect(reverse('fasteignasala-home', pk=id))
     else:
         form = HusnaediUpdateForm(instance=instance)
     return render(request, 'hus/breyta_husnaedi.html', {
