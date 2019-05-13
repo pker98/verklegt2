@@ -59,14 +59,7 @@ h2 {
     width: 100%;
 }
 
-.drop-downs ul {
-    list-style: none;
-}
 
-.drop-downs ul li {
-    background-color: red;
-    width: 100%;
-}
 
 .search-input > div {
     margin: auto;
