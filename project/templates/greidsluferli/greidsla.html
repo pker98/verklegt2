@@ -1,7 +1,7 @@
-{% extends "hus/husnaedi_details.html" %}
+{% extends "base.html" %}
 
 {% block content %}
-    <form class="form form-horizontal" action="{% url 'greidsluferli' %}" method="post">
+    <form class="form form-horizontal" action="{% url 'greidsla' %}" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Create" class="btn btn-primary pull-right" style="clear:both; margin:10px 0" />

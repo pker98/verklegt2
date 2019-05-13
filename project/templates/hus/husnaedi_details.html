@@ -39,6 +39,7 @@
     {% for apartment_image in apartment.apartmentimage_set.all %}
         <img src="{{ apartment_image.image }}" class="apartment_image">
     {% endfor %}
+    <a href="{% url 'greidsla' %}" class='block btn btn-primary'>Kaupa húsnæði</a>
     {%  if user.is_superuser %}
     <a href="{% url 'eyda_husnaedi' apartment.id %}" class='block btn btn-primary'>Eyða húsnæði</a>
     <a href="{% url 'breyta_husnaedi' apartment.id %}" class='block btn btn-primary'>Breyta húsnæði</a>
