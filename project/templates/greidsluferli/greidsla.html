@@ -14,6 +14,8 @@
         <input type="text" name="housenumber" placeholder="1"><br>
         Póstnúmer:<br>
         <input type="text" name="postal_code" placeholder="101"><br>
+        Borg:<br>
+        <input type="text" name="city" placeholder="Reykjavík"><br>
         Land:<br>
         <select id="country" name="country" class="form-control">
                 <option value="Afghanistan">Afghanistan</option>
@@ -261,7 +263,7 @@
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
             </select>
-    <input type="submit" value="Áfram" class="btn btn-primary pull-right" style="clear:both; margin:10px 0" />
+    <a href="{% url 'upplysingar' %}" class='block btn btn-primary'>Áfram</a>
     </form>
 
 {% endblock %}

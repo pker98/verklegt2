@@ -6,3 +6,6 @@ def greidsla(request):
 
 def almupp(request):
     return render(request, 'greidsluferli/upplysingar.html', {"title": "Almennar Upplýsingar"})
+
+def stadfesting(request):
+    return render(request, 'greidsluferli/stadfesting.html', {"title": "Staðfesting"})
