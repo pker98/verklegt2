@@ -47,7 +47,7 @@ class HusnaediCreateForm(forms.ModelForm):
             'price': widgets.NumberInput(attrs={ 'class': 'form-control' }),
             'fire_insurance': widgets.NumberInput(attrs={ 'class': 'form-control'}),
             'estimated_value': widgets.NumberInput(attrs={ 'class': 'form-control'}),
-            'zip': widgets.TextInput(attrs={'class': 'form-control' }),
+            'zip': widgets.NumberInput(attrs={'class': 'form-control' }),
             'town': widgets.TextInput(attrs={ 'class': 'form-control' }),
             'type': widgets.RadioSelect(choices={('1', 'Einbýlishús'),('2','Tvíbýlishús'),('3', 'Fjölbýlishús')}), #attrs={ 'class': 'form-control' }),
             'size': widgets.NumberInput(attrs={ 'class': 'form-control' }),
