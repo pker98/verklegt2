@@ -13,16 +13,16 @@ from django.contrib.auth.models import User
 
 class Apartment(models.Model):
     address = models.CharField(max_length=255)
-    price = models.CharField(max_length=20)
-    fire_insurance = models.CharField(max_length=20)
-    estimated_value = models.CharField(max_length=20)
+    price = models.IntegerField(max_length=20)
+    fire_insurance = models.IntegerField(max_length=20)
+    estimated_value = models.IntegerField(max_length=20)
     type = models.CharField(max_length=255)
-    size = models.CharField(max_length=255)
-    num_rooms = models.CharField(max_length=2)
-    num_bed_room = models.CharField(max_length=2)
-    num_bath_room = models.CharField(max_length=2)
+    size = models.IntegerField(max_length=255)
+    num_rooms = models.IntegerField(max_length=2)
+    num_bed_room = models.IntegerField(max_length=2)
+    num_bath_room = models.IntegerField(max_length=2)
     description = models.CharField(max_length=600)
-    zip = models.CharField(max_length=3, blank=False)
+    zip = models.IntegerField(max_length=3, blank=False)
     town = models.CharField(max_length=255, blank=False)
 
     def __str__(self):
