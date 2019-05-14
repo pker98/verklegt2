@@ -125,7 +125,7 @@ $(document).ready(function() {
                             </div>
                             </div>`
                 });
-                $('.apartment_list').html(newHtml.join(''));
+                $('.apartment_list').html('<h2 class="text-center pt-3 pb-3">Niðurstöður:</h2>' + newHtml.join(''));
                 $('#search-box').val('');
             }],
             error: function (xhr, status, error) {
