@@ -5,7 +5,6 @@ from notandi.models import Profile
 from notandi.forms.profile_form import Profile_form
 from .forms.profile_form import RegistrationForm
 
-
 def nyskraning(request):
     if request.method == "POST":
         form = RegistrationForm(data=request.POST)

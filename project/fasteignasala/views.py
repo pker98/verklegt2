@@ -7,6 +7,8 @@ from django.template import loader, RequestContext
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.models import User
+from history.models import History
 
 def home(request, query=None):
     if 'search_filter' in request.GET:
@@ -48,6 +50,10 @@ def home(request, query=None):
     return render(request, 'forsida/home.html', context)
 
 def get_apartm_by_id(request, id):
+    if request == "GET" and User.is_authenticated:
+        apartment = get_object_or_404(Apartment, pk=id)
+        history = History(User.id, apartment.id)
+        history.save()
     return render(request, 'hus/husnaedi_details.html', {
     'apartment': get_object_or_404(Apartment, pk=id)
     })
