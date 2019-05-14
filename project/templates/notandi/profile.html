@@ -10,4 +10,11 @@
         {{ form.as_p }}
         <input type="submit" class="btn btn-primary" value="Update"/>
     </form>
+
+    {% for apartment in history %}
+        <a href="/{{ apartment.apartment_id }}">
+        <h1>{{ apartment.apartment}}</h1>
+        <p>{{ apartment.viewed_on }}</p>
+        </a>
+    {% endfor %}
 {% endblock content %}

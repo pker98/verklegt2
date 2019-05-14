@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 
 @login_required
 def greidsla(request):
-    return render(request, 'greidsluferli/greidsla.html', {"title": "Greiðsluferli"})
+    return render(request, 'greidsluferli/greidsluferli.html', {"title": "Greiðsluferli"})
 
 @login_required
 def almupp(request):

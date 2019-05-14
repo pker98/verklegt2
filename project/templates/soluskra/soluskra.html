@@ -1,5 +1,81 @@
-{% extends "fasteignasala/../base.html" %}
+{% extends "base.html" %}
 {% block content %}
-    <h1>Söluskrá</h1>
-    <p>My first paragraph.</p>
+    <div class="input-group">
+        <form class="search-input">
+            <div style="width: 100%">
+                <div class="slider-container">
+                    <p>Stærð:</p>
+                    <div class="min_1 value" id="minSize">0 m<sup>2</sup></div>
+                    <div id="slider1" class="slider"></div>
+                    <div class="max_1 value" id="maxSize">500 m<sup>2</sup></div>
+                </div>
+            </div>
+
+            <div style="width: 100%">
+                <div class="slider-container">
+                    <p>Verð:</p>
+                    <div class="min_2 value" id="minPrice">0 milljónir</div>
+                    <div id="slider2" class="slider"></div>
+                    <div class="max_2 value" id="maxPrice">200 milljónir</div>
+                </div>
+            </div>
+
+            <div style="width: 100%">
+                <div class="slider-container">
+                    <p>Herbergi:</p>
+                    <div class="min_3 value" id="minRooms">0 herbergi</div>
+                    <div id="slider3" class="slider"></div>
+                    <div class="max_3 value" id="maxRooms">10 herbergi</div>
+                </div>
+            </div>
+            <div class="drop-downs">
+                      <div class="dropdown show d-inline">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Svæði
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+                            <label class="custom-control-label" for="defaultUnchecked">101 Reykjavík</label>
+
+                            <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+                            <label class="custom-control-label" for="defaultUnchecked">210 Garðabær</label>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown show d-inline">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tegund
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item">101</a>
+                        <a class="dropdown-item">Another action</a>
+                        <a class="dropdown-item">Something else here</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+                <input type="search" class="form-control" id="search-box" placeholder="Leita eftir heimilisfangi...">
+            </div>
+            <div class="input-group-btn">
+                <button type="button" id="search-button" class="btn btn-default orange-background">Leita</button>
+            </div>
+        </form>
+    <select onchange="sort()" id="sortval" class="orange-background">
+        <option>Heimilisfang</option>
+        <option>Verð</option>
+</select>
+    </div>
+
+
+    <div class="apartment_list">
+        <h2 class="text-center pt-3 pb-3">Allar eignir:</h2>
+            {% for apartment in apartments %}
+                {% include 'hus/Eitt_hus.html' with apartment=apartment %}
+            {% endfor %}
+    </div>
 {% endblock content %}
