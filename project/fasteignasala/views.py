@@ -7,6 +7,8 @@ from django.template import loader, RequestContext
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.models import User
+from history.models import History
 
 def home(request, query=None):
     if 'search_filter' in request.GET:
