@@ -132,6 +132,10 @@ h2 {
     display: block;
 }
 
+.price_container div {
+    padding: 0.5rem;
+}
+
 .apartment_container .info {
     width: 90%;
     margin: 0.5rem auto ;
