@@ -50,9 +50,9 @@ def home(request, query=None):
     return render(request, 'forsida/home.html', context)
 
 def get_apartm_by_id(request, id):
-    if request == "GET" and User.is_authenticated:
-        apartment = get_object_or_404(Apartment, pk=id)
-        history = History(User.id, apartment.id)
+    if request.method == "GET" and User.is_authenticated:
+        get_object_or_404(Apartment, pk=id)
+        history = History(user_id=request.user.id, apartment_id=id)
         history.save()
     return render(request, 'hus/husnaedi_details.html', {
     'apartment': get_object_or_404(Apartment, pk=id)

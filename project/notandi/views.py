@@ -4,6 +4,7 @@ from django.contrib.auth.views import LoginView
 from notandi.models import Profile
 from notandi.forms.profile_form import Profile_form
 from .forms.profile_form import RegistrationForm
+from history.models import History
 
 def nyskraning(request):
     if request.method == "POST":
@@ -23,6 +24,7 @@ def innskraning(request):
 
 def profile(request):
     profile = Profile.objects.filter(user=request.user).first()
+    history_list = History.objects.filter(user_id=request.user.id)
     if request.method == "POST":
         form = Profile_form(instance=profile, data=request.POST)
         if form.is_valid():
@@ -30,5 +32,5 @@ def profile(request):
             profile.user = request.user
             profile.save()
             return redirect('minar_sidur')
-    context = {'form': Profile_form(instance=profile)}
+    context = {'form': Profile_form(instance=profile), 'history' : history_list}
     return render(request, 'notandi/profile.html', context)
