@@ -7,7 +7,7 @@ function sort(){
         data: { sortval: sortval },
     }).done(function(data) {
         $('.apartment_list').html(data.html);
-    }
+    })};
 
 $(document).ready(function() {
     var min = $(".min_1");
@@ -95,8 +95,6 @@ $(document).ready(function() {
         var max_mkr = $("#slider2").slider("values")[1] * 1000000;
         var min_rooms = $("#slider3").slider("values")[0];
         var max_rooms = $("#slider3").slider("values")[1];
-        console.log(min_size);
-        console.log(min_rooms);
         $.ajax({
             url: '?search_filter=' + searchText + '&min_mkr=' + min_mkr + '&max_mkr=' + max_mkr +
             '&min_size=' + min_size + '&max_size=' + max_size + '&min_rooms=' + min_rooms + '&max_rooms=' + max_rooms,
