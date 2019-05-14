@@ -27,10 +27,26 @@
         </div>
 
         <div class="details">
-            <div class="details_type">Tegund: {{ apartment.type }}</div>
-            <div class="details_baths">Fjöldi baðherbergja: {{ apartment.num_bath_room }}</div>
-            <div class="details_rooms">Fjöldi herbergja: {{ apartment.num_rooms }}</div>
-            <div class="details_desc">{{ apartment.description }}</div>
+            <div class="details_line">
+                <div class="details_name">Tegund: </div>
+                <div class="details_value">{{ apartment.type }}</div>
+                <hr>
+            </div>
+            <div class="details_line">
+                <div class="details_name">Fjöldi baðherbergja: </div>
+                <div class="details_value">{{ apartment.num_bath_room }}</div>
+                <hr>
+            </div>
+            <div class="details_line">
+                <div class="details_name">Fjöldi herbergja: </div>
+                <div class="details_value">{{ apartment.num_rooms }}</div>
+                <hr>
+            </div>
+            <div class="details_line">
+                <div class="details_name">Lýsing: </div>
+                <div class="details_value">{{ apartment.description }}</div>
+                <hr>
+            </div>
             <br/>
         </div>
 
