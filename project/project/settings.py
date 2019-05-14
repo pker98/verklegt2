@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'greidsla.apps.GreidslaConfig',
     'fasteignasala.apps.FasteignasalaConfig',
+    'history.apps.HistoryConfig',
     'notandi.apps.NotandiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
