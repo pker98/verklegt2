@@ -1,13 +1,13 @@
+
 function sort(){
     var sortval = $('#sortval').val();
     $.ajax({
         type: "POST",
         url: "",
         data: { sortval: sortval },
-    }).done(function(data){
-         $('.apartment_list').html(data.html);
-    });
-}
+    }).done(function(data) {
+        $('.apartment_list').html(data.html);
+    }
 
 $(document).ready(function() {
     var min = $(".min_1");
@@ -18,6 +18,7 @@ $(document).ready(function() {
         max: 500,
         step: 10,
         values: [ 0, 500 ],
+
         slide: function( event, ui ) {
             min.html(ui.values[0] + " m<sup>2</sup>")
             max.html(ui.values[1] + " m<sup>2</sup>")

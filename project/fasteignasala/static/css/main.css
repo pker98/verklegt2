@@ -30,6 +30,11 @@ h2 {
     float:right;
 }
 
+.price {
+    font-weight: bold;
+    float:right;
+}
+
 .apartment_list {
     margin: auto;
     text-align: center;
@@ -59,7 +64,15 @@ h2 {
     width: 100%;
 }
 
+.apart-header {
+    background-color: #F5BB63;
+    padding: 2em;
+}
 
+.apart-header h1 {
+    display: inline-block;
+    margin-right: 2rem;
+}
 
 .search-input > div {
     margin: auto;
