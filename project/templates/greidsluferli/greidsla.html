@@ -5,17 +5,17 @@
     <form class="form form-horizontal" action="{% url 'upplysingar' %}" method="post">
     {% csrf_token %}
         Nafn:<br>
-        <input type="text" name="name" placeholder="Jón Jónsson"><br>
+        <input type="text" name="name" placeholder=""><br>
         Kennitala:<br>
-        <input type="text" name="ssn" placeholder="123456-7890"><br>
+        <input type="text" name="ssn" placeholder=""><br>
         Götuheiti:<br>
-        <input type="text" name="streetname" placeholder="Laugarvegur"><br>
+        <input type="text" name="streetname" placeholder=""><br>
         Húsnúmer:<br>
-        <input type="text" name="housenumber" placeholder="1"><br>
+        <input type="text" name="housenumber" placeholder=""><br>
         Póstnúmer:<br>
-        <input type="text" name="postal_code" placeholder="101"><br>
+        <input type="text" name="postal_code" placeholder=""><br>
         Borg:<br>
-        <input type="text" name="city" placeholder="Reykjavík"><br>
+        <input type="text" name="city" placeholder=""><br>
         Land:<br>
         <select id="country" name="country" class="form-control">
                 <option value="Afghanistan">Afghanistan</option>
@@ -117,7 +117,7 @@
                 <option value="Honduras">Honduras</option>
                 <option value="Hong Kong">Hong Kong</option>
                 <option value="Hungary">Hungary</option>
-                <option value="Iceland">Iceland</option>
+                <option value="Iceland" selected="selected">Iceland</option>
                 <option value="India">India</option>
                 <option value="Indonesia">Indonesia</option>
                 <option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
