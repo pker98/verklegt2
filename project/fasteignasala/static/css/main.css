@@ -170,13 +170,33 @@ h2 {
 
 * {box-sizing:border-box}
 
+img {
+    width: 300px;
+    height: 500px;
+}
+
+.details {
+    /*content: "";
+    border-bottom: 1px solid #d5d9dd;
+    height: 1px;
+    width: 98%;
+    margin-left: 2%;
+    padding: 12px 0 0 0;*/
+}
+
 /* Slideshow container */
-.slideshow-container {
+/*.slideshow-container {
   max-width: 700px;
   max-height: 700px;
   position: relative;
   margin: auto;
+  text-align: center;
   z-index: 1;
+}*/
+
+.slideshow-container {
+    text-align: left;
+    position: relative;
 }
 
 /* Hide the images by default */
