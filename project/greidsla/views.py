@@ -6,9 +6,5 @@ def greidsla(request):
     return render(request, 'greidsluferli/greidsluferli.html', {"title": "Greiðsluferli"})
 
 @login_required
-def almupp(request):
-    return render(request, 'greidsluferli/upplysingar.html', {"title": "Almennar Upplýsingar"})
-
-@login_required
-def stadfesting(request):
-    return render(request, 'greidsluferli/stadfesting.html', {"title": "Staðfesting"})
+def kaupsamningur(request):
+    return render(request, 'greidsluferli/kaupsamningur.html', {"title": "Kaupsamningur"})

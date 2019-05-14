@@ -3,7 +3,6 @@
     <form class="form-horizontal pay-form" role="form">
     <div class="modal-body row">
     <div class="col-md-6">
-    <fieldset class="scheduler-border">
         <h3 class="h3">Persónu upplýsingar</h3>
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -282,11 +281,9 @@
                 <input type="number" class="form-control" id="inputPhone" required>
             </div>
         </div>
-    </fieldset>
     </div>
         <div class="vl"></div>
     <div class="col-md-6">
-    <fieldset class="scheduler-border">
         <h3 class="h3">Greiðslu upplýsingar</h3>
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -338,9 +335,8 @@
             </div>
         </div>
         <div class="form-group col-md-6">
-            <button type="submit" class="btn btn-success">Greiða og fara á undirskriftarsíðu</button>
+            <a href="{% url 'kaupsamningur' %}" class='block btn btn-primary'>Staðfesta upplýsingar og fara á yfirlitssíðu</a>
         </div>
-        </fieldset>
     </div>
     </div>
     </form>
