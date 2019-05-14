@@ -1,39 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
-    <form class="form-horizontal" role="form">
+    <form class="form-horizontal pay-form" role="form">
+    <div class="modal-body row">
+    <div class="col-md-6">
     <fieldset class="scheduler-border">
-    <legend class="scheduler-border">Persónu upplýsingar:</legend>
+        <h3 class="h3">Persónu upplýsingar</h3>
         <div class="form-row">
-            <div class="form-group col-md-3">
-                <label for="inputFirstname">Fornafn:</label>
-                <input type="first-name" class="form-control" id="inputFirstname">
-            </div>
-            <div class="form-group col-md-3">
-                <label for="inputLastname">Eftirnafn:</label>
-                <input type="last-name" class="form-control" id="inputLastname">
+            <div class="form-group col-md-6">
+                <label for="inputFirstname">Fullt nafn:</label>
+                <input type="text" class="form-control" id="inputFirstname" required>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-6">
                 <label for="inputKennitala">Kennitala:</label>
-                <input type="kennitala" class="form-control" id="inputKennitala">
+                <input type="number" maxlength="10" class="form-control" id="inputKennitala" required>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <label for="inputAddress">Heimilisfang:</label>
-                <input type="text" class="form-control" id="inputAddress">
+                <input type="text" class="form-control" id="inputAddress" required>
             </div>
-            <div class="form-group col-md-4">
-                <label for="inputCity">Bæjarfélag:</label>
-                <input type="text" class="form-control" id="inputCity">
+            <div class="form-group col-md-2">
+                <label for="inputZip">Póstnúmer:</label>
+                <input type="number" maxlength="10" class="form-control" id="inputZip" required>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label for="inputCountry">Land:</label>
-                <select id="inputCountry" class="form-control">
-                <option value="Afghanistan">Afghanistan</option>
+                <select id="inputCountry" class="form-control" required>
+                    <option value="Afghanistan">Afghanistan</option>
                     <option value="Åland Islands">Åland Islands</option>
                     <option value="Albania">Albania</option>
                     <option value="Algeria">Algeria</option>
@@ -279,75 +277,71 @@
                     <option value="Zimbabwe">Zimbabwe</option>
               </select>
             </div>
-            <div class="form-group col-md-2">
-                <label for="inputZip">Póstnúmer:</label>
-                <input type="text" class="form-control" id="inputZip">
+            <div class="form-group col-md-3">
+                <label for="inputPhone">Símanúmer:</label>
+                <input type="number" class="form-control" id="inputPhone" required>
             </div>
         </div>
-
-        <legend>Greiðslu upplýsingar:</legend>
-        <div class="form-group">
-            <label class="col-sm-3 control-label" for="card-holder-name">Kortahafi:</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="Nafn greiðanda...">
+    </fieldset>
+    </div>
+        <div class="vl"></div>
+    <div class="col-md-6">
+    <fieldset class="scheduler-border">
+        <h3 class="h3">Greiðslu upplýsingar</h3>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="card-holder-name">Kortahafi:</label>
+                <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="Nafn greiðanda..." required>
             </div>
         </div>
-        <div class="form-group">
-                <label class="col-sm-3 control-label" for="card-number">Kortanúmer:</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" name="card-number" id="card-number" placeholder="Debit/Credit kortanúmer">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="card-number">Kortanúmer:</label>
+                <input type="text" class="form-control" name="card-number" id="card-number" placeholder="Debit/Credit kortanúmer" required>
             </div>
         </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label" for="expiry-month">Gildistími (mán/ár):</label>
-            <div class="col-sm-9">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <select class="form-control col-sm-2" name="expiry-month" id="expiry-month">
-                            <option>Mánuður</option>
-                            <option value="01">Jan (01)</option>
-                            <option value="02">Feb (02)</option>
-                            <option value="03">Mars (03)</option>
-                            <option value="04">Apr (04)</option>
-                            <option value="05">Maí (05)</option>
-                            <option value="06">Júní (06)</option>
-                            <option value="07">Júlí (07)</option>
-                            <option value="08">Ágú (08)</option>
-                            <option value="09">Sep (09)</option>
-                            <option value="10">Okt (10)</option>
-                            <option value="11">Nóv (11)</option>
-                            <option value="12">Des (12)</option>
-                        </select>
-                    </div>
-                    <div class="col-xs-3">
-                        <select class="form-control" name="expiry-year">
-                            <option value="19">2019</option>
-                            <option value="20">2020</option>
-                            <option value="21">2021</option>
-                            <option value="22">2022</option>
-                            <option value="23">2023</option>
-                            <option value="21">2024</option>
-                            <option value="22">2025</option>
-                            <option value="23">2026</option>
-                            <option value="21">2027</option>
-                            <option value="22">2028</option>
-                            <option value="23">2029</option>
-                        </select>
-                    </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+            <label for="expiry-month">Gildistími (mán/ár):</label>
+                    <select class="form-control" name="expiry-month" required>
+                        <option>Mánuður</option>
+                        <option value="01">Jan (01)</option>
+                        <option value="02">Feb (02)</option>
+                        <option value="03">Mars (03)</option>
+                        <option value="04">Apr (04)</option>
+                        <option value="05">Maí (05)</option>
+                        <option value="06">Júní (06)</option>
+                        <option value="07">Júlí (07)</option>
+                        <option value="08">Ágú (08)</option>
+                        <option value="09">Sep (09)</option>
+                        <option value="10">Okt (10)</option>
+                        <option value="11">Nóv (11)</option>
+                        <option value="12">Des (12)</option>
+                    </select>
+                    <select class="form-control" name="expiry-year" required>
+                        <option value="19">2019</option>
+                        <option value="20">2020</option>
+                        <option value="21">2021</option>
+                        <option value="22">2022</option>
+                        <option value="23">2023</option>
+                        <option value="24">2024</option>
+                        <option value="25">2025</option>
+                        <option value="26">2026</option>
+                        <option value="27">2027</option>
+                        <option value="28">2028</option>
+                        <option value="29">2029</option>
+                    </select>
                 </div>
-        </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label" for="cvv">Öryggisnúmer (CVC)</label>
-            <div class="col-sm-3">
-                <input type="text" class="form-control" name="cvv" id="cvv" placeholder="***">
+            <div class="form-group col-md-4">
+                <label for="cvv">Öryggisnúmer (CVC):</label>
+                <input type="text" class="form-control" name="cvv" id="cvv" placeholder="***" required>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-9">
-                <button type="button" class="btn btn-success">Greiða og fara á undirskriftarsíðu</button>
-            </div>
-            </div>
+        <div class="form-group col-md-6">
+            <button type="submit" class="btn btn-success">Greiða og fara á undirskriftarsíðu</button>
+        </div>
         </fieldset>
+    </div>
+    </div>
     </form>
 {% endblock content %}

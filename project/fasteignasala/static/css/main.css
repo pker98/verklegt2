@@ -170,6 +170,29 @@ h2 {
 
 * {box-sizing:border-box}
 
+.pay-form {
+    padding: 40px;
+    margin: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: lightgray solid 1px;
+    background-color: whitesmoke;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+}
+
+/* Vertical line in the middle of the payment form */
+.vl {
+    border-left: 1px solid black;
+    height: 90%;
+    position: absolute;
+    left: 47%;
+    margin-left: -3px;
+    top: 5%;
+}
+
 img {
     width: 300px;
     height: 500px;
