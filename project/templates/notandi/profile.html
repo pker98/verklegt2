@@ -29,8 +29,10 @@
                 <div class="history-block">
                     <a href="/{{ instance.apartment_id }}">
                     <h2>{{ instance.apartment }}</h2>
+                    <p>Póstnúmer: {{ instance.apartment.zip }}</p>
                     <p>Skoðað á: {{ instance.viewed_on }}</p>
                     </a>
+                    <img  class="history-img" src="{{ instance.apartment.apartmentimage_set.first.image }}">
                 </div>
             {% endfor %}
         </div>

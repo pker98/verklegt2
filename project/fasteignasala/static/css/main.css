@@ -72,7 +72,7 @@ select option:nth-child(odd) {
 }
 
 .crop {
-    height: 14rem;
+    height: 60%;
     width: 100%;
     overflow: hidden;
     margin-bottom: 0.5rem;
@@ -208,9 +208,8 @@ select option:nth-child(odd) {
 }
 
 .history-block {
-    padding: 1.5rem;
     width: 100%;
-    height: 7rem;
+    height: 10rem;
     border-color: lightgrey;
     border-width: 0.1rem;
     border-style: solid;
@@ -221,7 +220,9 @@ select option:nth-child(odd) {
 
 
 .history-block a {
-    margin: auto;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    display: inline-block;
 }
 
 .history-content :nth-child(even).history-block {
@@ -230,6 +231,15 @@ select option:nth-child(odd) {
 
 .history-content {
     margin-top: 3rem;
+}
+
+.history-img {
+    display: inline-block;
+    height: 8rem;
+    width: 10rem;
+    float: right;
+    margin: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.46);
 }
 
 .apartment_container .info {
@@ -289,9 +299,6 @@ select option:nth-child(odd) {
     top: 5%;
 }
 
-.glyphicon {
-    margin-bottom: 10px;margin-right: 10px;
-}
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -387,54 +394,41 @@ select option:nth-child(odd) {
 }
 
 .slider-img {
-    width: 300px;
-    height: 500px;
+    height: 40rem;
 }
 
-hr {
-    display: none;
-}
 
 .details {
-    margin-top: 10px;
+    padding: 1rem;
+    margin: 1rem auto;
     display: flex;
     justify-content: space-between;
-    padding: 15px 20px 0 20px;
+    width: 90%;
+
 }
 
-.details_line {
-    width: 35%;
-    border: 1px solid black;
-    margin: 0 0 10px 0;
+.details_section {
+    text-align: center;
+}
+
+.details_description {
+    border-top: 0.1rem solid #b2b2b2;
+    display: block;
+    width: 90%;
+    margin: auto;
+    padding: 1rem;
+    text-align: justify;
 }
 
 .details_name {
-    float: left;
+    display: inline-block;
 }
 
 .details_value {
-    float: right;
-    font-weight: 700;
+    margin-left: 1rem;
+    font-weight: bold;
+    display: inline-block;
 }
-
-.details {
-    /*content: "";
-    border-bottom: 1px solid #d5d9dd;
-    height: 1px;
-    width: 98%;
-    margin-left: 2%;
-    padding: 12px 0 0 0;*/
-}
-
-/* Slideshow container */
-/*.slideshow-container {
-  max-width: 700px;
-  max-height: 700px;
-  position: relative;
-  margin: auto;
-  text-align: center;
-  z-index: 1;
-}*/
 
 .slideshow-container {
     text-align: left;
