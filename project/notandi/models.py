@@ -4,11 +4,11 @@ from django.contrib.auth.models import User
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     profile_img = models.CharField(max_length=9999)
 
     def __str__(self):
-        return self.user.first_name + self.user.last_name
+        return self.profile_img
 
     #Need to be able to get the email and name into the form here
     #to be able to change them. Can't figure out how to connect

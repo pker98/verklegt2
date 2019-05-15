@@ -5,19 +5,21 @@ from django.contrib.auth.models import User
 from django import forms
 
 
-class Profile_form(ModelForm):
+class ProfileForm(ModelForm):
     class Meta:
-        model = Profile
-        exclude = ['id']
+        model = User
+        exclude = ['id', 'password', 'first_name', 'last_name', 'last_login', 'is_superuser', 'is_staff', 'is_active', 'date_joined']
         widgets = {
-            'user': widgets.TextInput(attrs={'class': 'form-control'}),
-            'email': widgets.EmailInput(attrs={'class': 'form-control'}),
+            'username': widgets.TextInput(attrs={'class': 'form-control'}),
+            'email': widgets.TextInput(attrs={'class': 'form-control'}),
             'profile_img': widgets.URLInput(attrs={'class': 'form-control'})
         }
         labels = {
-            'user': 'Notandi',
+            'username': 'Notandi',
+            'email': 'Email',
             'profile_img': 'Profile Mynd'
         }
+
 
 class RegistrationForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=True)
