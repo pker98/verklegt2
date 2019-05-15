@@ -10,7 +10,9 @@ class Profile_form(ModelForm):
         model = Profile
         exclude = ['id', 'user']
         widgets = {
-            'profile_img': widgets.TextInput(attrs={'class' : 'form-control'})
+            'user': widgets.TextInput(attrs={'class': 'form-control'}),#the additional
+            'email': widgets.TextInput(attrs={'class': 'form-control'}),
+            'profile_img': widgets.TextInput(attrs={'class': 'form-control'})
         }
 
 class RegistrationForm(UserCreationForm):
