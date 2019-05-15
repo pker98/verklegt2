@@ -302,31 +302,31 @@
             <label for="expiry-month">Gildistími (mán/ár):</label>
                     <select class="form-control" name="expiry-month" required>
                         <option>Mánuður</option>
-                        <option value="01">Jan (01)</option>
-                        <option value="02">Feb (02)</option>
-                        <option value="03">Mars (03)</option>
-                        <option value="04">Apr (04)</option>
-                        <option value="05">Maí (05)</option>
-                        <option value="06">Júní (06)</option>
-                        <option value="07">Júlí (07)</option>
-                        <option value="08">Ágú (08)</option>
-                        <option value="09">Sep (09)</option>
-                        <option value="10">Okt (10)</option>
-                        <option value="11">Nóv (11)</option>
-                        <option value="12">Des (12)</option>
+                        <option value="Jan">Jan (01)</option>
+                        <option value="Feb">Feb (02)</option>
+                        <option value="Mars">Mars (03)</option>
+                        <option value="Apr">Apr (04)</option>
+                        <option value="Maí">Maí (05)</option>
+                        <option value="Júní">Júní (06)</option>
+                        <option value="Júlí">Júlí (07)</option>
+                        <option value="Ágú">Ágú (08)</option>
+                        <option value="Sep">Sep (09)</option>
+                        <option value="Okt">Okt (10)</option>
+                        <option value="Nóv">Nóv (11)</option>
+                        <option value="Des">Des (12)</option>
                     </select>
                     <select class="form-control" name="expiry-year" required>
-                        <option value="19">2019</option>
-                        <option value="20">2020</option>
-                        <option value="21">2021</option>
-                        <option value="22">2022</option>
-                        <option value="23">2023</option>
-                        <option value="24">2024</option>
-                        <option value="25">2025</option>
-                        <option value="26">2026</option>
-                        <option value="27">2027</option>
-                        <option value="28">2028</option>
-                        <option value="29">2029</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
                     </select>
                 </div>
             <div class="form-group col-md-4">
@@ -335,9 +335,27 @@
             </div>
         </div>
         <div class="form-group col-md-6">
-            <a href="{% url 'kaupsamningur' %}" class='block btn btn-primary'>Staðfesta upplýsingar og fara á yfirlitssíðu</a>
+            <a class="submit block btn btn-primary" href="#popup1">Staðfesta upplýsingar og fara á yfirlitssíðu</a>
         </div>
     </div>
     </div>
     </form>
+    <!-- Popup -->
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2 class="h2">Kaupsamningur</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                    explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+                    magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor
+                    sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam
+                    aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
+                    nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea
+                    voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+                </div>
+                <a class="submit block btn btn-primary" href="{% url 'fasteignasala-home' %}">Staðfesta kaup og færa mig á heimasíðu</a>
+            </div>
+        </div>
 {% endblock content %}
