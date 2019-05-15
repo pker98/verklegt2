@@ -78,7 +78,7 @@ def soluskra(request, query=None):
         filter(num_rooms__gte=min_rooms, num_rooms__lte=max_rooms).filter(size__gte=min_size, size__lte=max_size)]
         return JsonResponse({ 'data': apartments })
 
-    context = {"apartments": Apartment.objects.all(), 'title' : 'Söluksrá'}
+    context = {"apartments": Apartment.objects.all(), 'title' : 'Söluskrá'}
     return render(request, 'soluskra/soluskra.html', context)
 
 
