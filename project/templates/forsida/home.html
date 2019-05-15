@@ -29,39 +29,128 @@
                 </div>
             </div>
             <div class="drop-downs">
-                      <div class="dropdown show d-inline">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Svæði</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <div class="custom-control">
-                            <ul style="list-style: none">
-                                <li>
-                                    <label>
-                                        <input type="checkbox" id="defaultUnchecked">
-                                        <span>101 Reykjavík</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="checkbox" id="defaultUnchecked">
-                                        <span>210 Garðabær</span>
-                                    </label>
-                                </li>
+                <div class="dropdown show d-inline" id="location">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Svæði
+                    </a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li>
+                                <label>
+                                    <input class="big-checkbox" type="checkbox" value="1"></input>
+                                    101 Reykjavík
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input class="big-checkbox" type="checkbox" value="2"></input>
+                                    170 Seltjarnarnes
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input class="big-checkbox" type="checkbox" value="3"></input>
+                                    200 Kópavogur
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input class="big-checkbox" type="checkbox" value="4"></input>
+                                    210 Garðabær
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input class="big-checkbox" type="checkbox" value="5"></input>
+                                    220 Hafnafjörður
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input class="big-checkbox" type="checkbox" value="6"></input>
+                                    225 Álftanes
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input class="big-checkbox" type="checkbox" value="7"></input>
+                                    270 Mosfellsbær
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input class="big-checkbox" type="checkbox" value="8"></input>
+                                    190 Vogar
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input class="big-checkbox" type="checkbox" value="9"></input>
+                                    230 Reykjanesbær
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input class="big-checkbox" type="checkbox" value="10"></input>
+                                    240 Grindavík
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input class="big-checkbox" type="checkbox" value="11"></input>
+                                    245 Sandgerði
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input class="big-checkbox" type="checkbox" value="12"></input>
+                                    300 Akranes
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input class="big-checkbox" type="checkbox" value="13"></input>
+                                    400 Ísafjörður
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input class="big-checkbox" type="checkbox" value="14"></input>
+                                    580 Siglufjörður
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input class="big-checkbox" type="checkbox" value="15"></input>
+                                    600 Akureyri
+                                </label>
+                            </li>
+                        </ul>
 
-                            </ul>
-
-                        </div>
                     </div>
                 </div>
 
-                <div class="dropdown show d-inline">
+
+                <div class="dropdown show d-inline" id="type">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Tegund
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item">101</a>
-                        <a class="dropdown-item">Another action</a>
-                        <a class="dropdown-item">Something else here</a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li>
+                                <input class="big-checkbox" type="checkbox" id="1_type"></input>
+                                <label for="1_type">Einbýlishús</label>
+                            </li>
+                            <li>
+                                <input class="big-checkbox" type="checkbox" id="2_type"></input>
+                                <label for="2_type">Tvíbýlishús</label>
+                            </li>
+                            <li>
+                                <input class="big-checkbox" type="checkbox" id="3_type"></input>
+                                <label for="3_type">Fjölbýlishús</label>
+                            </li>
+                        </ul>
+
                     </div>
                 </div>
             </div>
@@ -72,10 +161,19 @@
                 <button type="button" id="search-button" class="btn btn-default orange-background">Leita</button>
             </div>
         </form>
-    <select onchange="sort()" id="sortval" class="orange-background">
-        <option>Heimilisfang</option>
-        <option>Verð</option>
-    </select>
+
+    <div id="sort-block">
+        <div style="background-color: #bbbbbb">
+            Flokka eftir
+        </div>
+        <select onchange="sort()" id="sortval">
+            <option>Heimilisfang</option>
+            <option>Verð</option>
+        </select>
+    </div>
+
+
+
     </div>
 
 
