@@ -10,6 +10,23 @@ h2 {
     text-decoration: none;
 }
 
+#sort-block {
+    margin-left:auto;
+    margin-right:0;
+    margin-top: 1rem;
+}
+
+#sort-head {
+    padding: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+    background-color: whitesmoke;
+    border-color: lightgrey;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-radius: 0.2rem;
+}
+
 .apartment_list a:hover .apartment_container {
     border-color: rgba(0, 0, 0, 0.36);
     border-width: 0.1rem;
@@ -129,6 +146,10 @@ h2 {
     width: 50%;
     margin: 0 1rem;
     display: inline-block;
+}
+
+.slider-container p {
+    margin: 0;
 }
 .apartment_container {
     display: inline-block;
