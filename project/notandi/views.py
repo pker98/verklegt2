@@ -19,7 +19,6 @@ def nyskraning(request):
 
 def innskraning(request):
     form = LoginView()
-
     context = {'form': form, 'title': 'Innskráning'}
     return render(request, 'notandi/innskraning.html', context)
 
@@ -33,5 +32,5 @@ def profile(request):
             profile.user = request.user
             profile.save()
             return redirect('minar_sidur')
-    context = {'form': Profile_form(instance=profile), 'history' : history_list}
+    context = {'form': Profile_form(instance=profile), 'history' : history_list, 'profile' : profile}
     return render(request, 'notandi/profile.html', context)

@@ -1,21 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
-    <!--{% if form.profile_img is not_empty %} {% endif %}-->
-    <h1>Þinn aðgangur</h1>
-    <img class="rounded-circle account-image" src="{{ form.profile_img }}">
-    <p>Notandanafn: {{ user.username }}</p>
-    <p>Netfang: {{ user.email }}</p>
-    <p>Fullt Nafn: {{ user.first_name }} {{ user.last_name }}</p>
-    <form class="form form-horizontal" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" class="btn btn-primary" value="Update"/>
-    </form>
-
-    {% for apartment in history %}
-        <a href="/{{ apartment.apartment_id }}">
-        <h1>{{ apartment.apartment}}</h1>
-        <p>{{ apartment.viewed_on }}</p>
-        </a>
-    {% endfor %}
+    <div class="modal-body row">
+        <div class="col-md-6">
+            <div class="card">
+                <img src="{{ profile.profile_img }}" alt="{{ profile.profile_img }}" style="width:100%">
+                <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                <p class="email">{{ user.email }}</p>
+                <div style="margin: 24px 10px;">
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                <p><button>Contact</button></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            {% for instance in history %}
+                <a href="/{{ instance.apartment_id }}">
+                <h1>{{ instance.apartment}}</h1>
+                <p>{{ instance.viewed_on }}</p>
+                <img src="{{ instance.apartment.apartmentimage_set.first.image }}">
+                </a>
+            {% endfor %}
+        </div>
 {% endblock content %}
+
+Geyma ::: {% if form.profile_img is not_empty %} {% endif %}
