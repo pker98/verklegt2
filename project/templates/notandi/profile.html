@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="modal-body row">
-        <div class="col-md-6">
+    <div>
+        <div>
             <div class="card">
-                <img src="{{ profile.profile_img }}" alt="{{ profile.profile_img }}" style="width:100%">
+                <img src="{{ profile.profile_img }}" alt="{{ profile.profile_img }}" style="width:90%; margin: 1rem auto;">
                 <h1>{{ user.first_name }} {{ user.last_name }}</h1>
                 <p class="email">{{ user.email }}</p>
                 <div style="margin: 24px 10px;">

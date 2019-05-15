@@ -228,6 +228,10 @@ select option:nth-child(odd) {
     background-color: whitesmoke;
 }
 
+.history-content {
+    margin-top: 3rem;
+}
+
 .apartment_container .info {
     width: 90%;
     margin: 0.5rem auto ;
@@ -294,7 +298,7 @@ select option:nth-child(odd) {
     max-width: 300px;
     margin: auto;
     text-align: center;
-    background-color: lightgray;
+    background-color: whitesmoke;
 }
 
 .email {
