@@ -136,6 +136,26 @@ h2 {
     padding: 0.5rem;
 }
 
+.history-block {
+    padding: 1.5rem;
+    width: 100%;
+    height: 7rem;
+    border-width: 1rem;
+    border-color: lightgrey;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-radius: 0.2rem;
+    margin: 0.1rem 0;
+}
+
+.history-block a {
+    margin: auto;
+}
+
+.history-content :nth-child(even).history-block {
+    background-color: whitesmoke;
+}
+
 .apartment_container .info {
     width: 90%;
     margin: 0.5rem auto ;

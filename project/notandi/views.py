@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.db.models import Count
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
@@ -25,7 +26,7 @@ def innskraning(request):
 def profile(request):
     profile = Profile.objects.filter(user=request.user).first()
     #user = User.objects.filter(user=request.user).first()#Not sure if I add user here
-    history_list = History.objects.filter(user_id=request.user.id)
+    history_list = History.objects.filter(user_id=request.user.id).order_by('-viewed_on')[:10]
     if request.method == "POST":
         form = Profile_form(instance=profile, data=request.POST)
         if form.is_valid():

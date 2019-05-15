@@ -81,14 +81,18 @@ function showSlides(n) {
   for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+  //slides[slideIndex-1].style.display = "block";
+  //dots[slideIndex-1].className += " active";
 }
 
 $(document).ready(function() {
     $('#search-button').on('click', function(e) {
         e.preventDefault();
-        var searchText = $('#search-box').val();
+        if ($('#search-box').val() == null) {
+            var searchText = ''
+        } else  {
+            var searchText = $('#search-box').val();
+        }
         var min_size = $("#slider1").slider("values")[0];
         var max_size = $("#slider1").slider("values")[1];
         var min_mkr = $("#slider2").slider("values")[0] * 1000000;
