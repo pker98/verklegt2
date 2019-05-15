@@ -1,24 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-    <div>
-        <h1>Mín Síða</h1>
+    <h1>Mín Síða</h1>
+    <div id="profile_display">
         <div>
-            <div class="card">
-                <img src="{{ profile.profile_img }}" alt="{{ profile.profile_image }}" style="width:90%; margin: 1rem auto;">
-                <h1>{{ user.first_name }} {{ user.last_name }}</h1>
-                <p class="email">{{ user.email }}</p>
+            <div>
+                <div class="card">
+                    <img src="{{ profile.profile_img }}" alt="{{ profile.profile_image }}" style="width:90%; margin: 1rem auto;">
+                    <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                    <p class="email">{{ user.email }}</p>
+                </div>
             </div>
         </div>
+        <form class="form form-horizontal" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p>{{ image_form }}</p>
+            <input type="submit" class="btn btn-primary" value="Update"/>
+        </form>
     </div>
-    <form class="form form-horizontal" method="post">
-        {% csrf_token %}
-        {{ form }}
-        {{ image_form }}
-        <input type="submit" class="btn btn-primary" value="Update"/>
-    </form>
+
 
         <div class="col-md-6 history-content">
-            <h2>Nýlega skoðaðar síður:</h2>
+            <h2 style="text-align: center; margin-bottom: 1rem">Nýlega skoðaðar síður:</h2>
             {% for instance in history %}
                 <div class="history-block">
                     <a href="/{{ instance.apartment_id }}">

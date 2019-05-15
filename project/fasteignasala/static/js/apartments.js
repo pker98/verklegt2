@@ -143,3 +143,4 @@ $("button").click(function() {
     $('html,body').animate({
         scrollTop: $("#apartment_list").offset().top});
 });
+

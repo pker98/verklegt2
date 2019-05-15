@@ -230,7 +230,7 @@ select option:nth-child(odd) {
 }
 
 .history-content {
-    margin-top: 3rem;
+    margin: 3rem auto;
 }
 
 .history-img {
@@ -259,6 +259,24 @@ select option:nth-child(odd) {
     opacity: 0;
     transition: 0.2s ease-in-out;
     z-index: 100;
+}
+
+#profile_display {
+    display: flex;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    justify-content: center;
+    box-shadow: 0 10px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+#profile_display form {
+    margin-left: 2rem;
+    width: 20rem;
+}
+
+#profile_display form p {
+    margin: 0 0 0.5rem 0;
+    padding: 0;
 }
 
 .see_more p {
