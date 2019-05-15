@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <div>
+        <h1>Mín Síða</h1>
         <div>
             <div class="card">
                 <img src="{{ profile.profile_img }}" alt="{{ profile.profile_img }}" style="width:90%; margin: 1rem auto;">
@@ -16,6 +17,11 @@
             </div>
         </div>
     </div>
+    <form class="form form-horizontal" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" class="btn btn-primary" value="Update"/>
+    </form>
 
         <div class="col-md-6 history-content">
             <h2>Nýlega skoðaðar síður:</h2>
@@ -23,13 +29,11 @@
                 <div class="history-block">
                     <a href="/{{ instance.apartment_id }}">
                     <h2>{{ instance.apartment }}</h2>
+                    <p>Póstnúmer: {{ instance.apartment.zip }}</p>
                     <p>Skoðað á: {{ instance.viewed_on }}</p>
                     </a>
+                    <img  class="history-img" src="{{ instance.apartment.apartmentimage_set.first.image }}">
                 </div>
-
             {% endfor %}
         </div>
 {% endblock content %}
-
-
-Geyma ::: {% if form.profile_img is not_empty %} {% endif %}

@@ -4,7 +4,7 @@
         <div class="apart-header">
             <h1>{{ apartment.address }}</h1>
             <h1 style="font-weight: lighter">{{ apartment.zip }}</h1>
-            <h1 class="price">{{ apartment.price }} kr.</h1>
+            <h1 class="price">{{ price }} kr.</h1>
         </div>
         <!-- Slideshow container -->
         <div class="slideshow-container">
@@ -27,38 +27,33 @@
         </div>
 
         <div class="details">
-            <div class="details_line">
+            <div class="details_section">
                 <div class="details_name">Tegund: </div>
                 <div class="details_value">{{ apartment.type }}</div>
-                <hr>
             </div>
-            <div class="details_line">
+            <div class="details_section">
                 <div class="details_name">Fjöldi baðherbergja: </div>
                 <div class="details_value">{{ apartment.num_bath_room }}</div>
-                <hr>
             </div>
-            <div class="details_line">
+            <div class="details_section">
                 <div class="details_name">Fjöldi herbergja: </div>
                 <div class="details_value">{{ apartment.num_rooms }}</div>
-                <hr>
             </div>
-            <div class="details_line">
-                <div class="details_name">Lýsing: </div>
-                <div class="details_value">{{ apartment.description }}</div>
-                <hr>
-            </div>
-            <br/>
+
         </div>
-
-        <!-- The dots/circles -->
-        <a href="{% url 'greidsla' apartment.id %}" class='block btn btn-primary'>Kaupa húsnæði</a>
-
-        {%  if user.is_superuser %}
-        <a href="{% url 'eyda_husnaedi' apartment.id %}" class='block btn btn-primary'>Eyða húsnæði</a>
-        <a href="{% url 'breyta_husnaedi' apartment.id %}" class='block btn btn-primary'>Breyta húsnæði</a>
-        {% endif %}
+        <div class="details_description">
+            <h2>Lýsing:</h2>
+            <p>{{ apartment.description }}</p>
+        </div>
         <br>
-    </div>
-    <br>
+        <!-- The dots/circles -->
 
+
+
+    </div>
+        <a href="{% url 'greidsla' apartment.id %}" class='block btn btn-primary m-2'>Kaupa húsnæði</a>
+        {%  if user.is_superuser %}
+        <a href="{% url 'eyda_husnaedi' apartment.id %}" class='block btn btn-primary m-2'>Eyða húsnæði</a>
+        <a href="{% url 'breyta_husnaedi' apartment.id %}" class='block btn btn-primary m-2'>Breyta húsnæði</a>
+        {% endif %}
 {% endblock %}

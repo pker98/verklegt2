@@ -78,8 +78,8 @@ def soluskra(request, query=None):
         filter(num_rooms__gte=min_rooms, num_rooms__lte=max_rooms).filter(size__gte=min_size, size__lte=max_size)]
         return JsonResponse({ 'data': apartments })
 
-    context = {"apartments": Apartment.objects.all()}
-    return render(request, 'soluskra/soluskra.html', context, {"title": "Söluskrá"})
+    context = {"apartments": Apartment.objects.all(), 'title' : 'Söluksrá'}
+    return render(request, 'soluskra/soluskra.html', context)
 
 
 def get_apartm_by_id(request, id):
@@ -92,8 +92,11 @@ def get_apartm_by_id(request, id):
         except History.DoesNotExist:
             new_history = History(user_id=request.user.id, apartment_id=id)
             new_history.save()
+    apartment = get_object_or_404(Apartment, pk=id)
+    format_price = format(apartment.price,',d').replace(",",".")
     return render(request, 'hus/husnaedi_details.html', {
-    'apartment': get_object_or_404(Apartment, pk=id)
+
+    'apartment': get_object_or_404(Apartment, pk=id), 'price' : format_price
     })
 
 
