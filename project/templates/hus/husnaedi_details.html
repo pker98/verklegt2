@@ -51,7 +51,7 @@
         </div>
 
         <!-- The dots/circles -->
-        <a href="{% url 'greidsla' %}" class='block btn btn-primary'>Kaupa húsnæði</a>
+        <a href="{% url 'greidsla' apartment.id %}" class='block btn btn-primary'>Kaupa húsnæði</a>
 
         {%  if user.is_superuser %}
         <a href="{% url 'eyda_husnaedi' apartment.id %}" class='block btn btn-primary'>Eyða húsnæði</a>
