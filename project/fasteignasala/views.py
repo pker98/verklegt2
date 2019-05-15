@@ -59,6 +59,7 @@ def soluskra(request, query=None):
         max_size = request.GET.get('max_size')
         min_rooms = request.GET.get('min_rooms')
         max_rooms = request.GET.get('max_rooms')
+        zip_list = request.GET.get('zip_list')
         apartments = [{
             'id': x.id,
             'address': x.address,
@@ -74,8 +75,8 @@ def soluskra(request, query=None):
             'town': x.town,
             'zip': x.zip,
             'first_image': x.apartmentimage_set.first().image
-        } for x in Apartment.objects.filter(address__icontains=search_filter).filter(price__gte=min_mkr, price__lte=max_mkr).
-        filter(num_rooms__gte=min_rooms, num_rooms__lte=max_rooms).filter(size__gte=min_size, size__lte=max_size)]
+        } for x in Apartment.objects.filter(address__icontains=search_filter).filter(price__gte=min_mkr, price__lte=max_mkr)
+            .filter(num_rooms__gte=min_rooms, num_rooms__lte=max_rooms).filter(size__gte=min_size, size__lte=max_size).filter(zip__in=[zip_list])]
         return JsonResponse({ 'data': apartments })
 
     context = {"apartments": Apartment.objects.all(), 'title' : 'Söluskrá'}

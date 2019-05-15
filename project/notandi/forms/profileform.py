@@ -4,7 +4,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 
-
 class ProfileImageForm(ModelForm):
     class Meta:
         model = ProfileImage
@@ -28,7 +27,6 @@ class UserUpdateForm(ModelForm):
             'email': widgets.EmailInput(attrs={'class': 'form-control'}),
             'image': forms.CharField(required=True, widget=forms.TextInput(attrs={ 'class': 'form-control' }))
         }
-
 
 class RegistrationForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=True)

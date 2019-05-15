@@ -90,6 +90,14 @@ function showSlides(n) {
 $(document).ready(function() {
     $('#search-button').on('click', function(e) {
         e.preventDefault();
+        var zip_list = []
+        for (i = 0; i < 15; i++) {
+            zip = 'p' + (i+1)
+            if (document.getElementById(zip).checked) {
+                zip_list.push(Number($('#' + zip).val()))
+            }
+        }
+        console.log(zip_list)
         var searchText = $('#search-box').val();
         var min_size = $("#slider1").slider("values")[0];
         var max_size = $("#slider1").slider("values")[1];
@@ -99,7 +107,8 @@ $(document).ready(function() {
         var max_rooms = $("#slider3").slider("values")[1];
         $.ajax({
             url: '?search_filter=' + searchText + '&min_mkr=' + min_mkr + '&max_mkr=' + max_mkr +
-            '&min_size=' + min_size + '&max_size=' + max_size + '&min_rooms=' + min_rooms + '&max_rooms=' + max_rooms,
+                '&min_size=' + min_size + '&max_size=' + max_size + '&min_rooms=' + min_rooms + '&max_rooms=' +
+                max_rooms + '&zip_list=' + zip_list,
             type: 'GET',
             success: [ function(resp) {
                 var newHtml = resp.data.map(d => {
