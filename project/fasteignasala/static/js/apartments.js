@@ -88,11 +88,7 @@ function showSlides(n) {
 $(document).ready(function() {
     $('#search-button').on('click', function(e) {
         e.preventDefault();
-        if ($('#search-box').val() == null) {
-            var searchText = ''
-        } else  {
-            var searchText = $('#search-box').val();
-        }
+        var searchText = $('#search-box').val();
         var min_size = $("#slider1").slider("values")[0];
         var max_size = $("#slider1").slider("values")[1];
         var min_mkr = $("#slider2").slider("values")[0] * 1000000;
