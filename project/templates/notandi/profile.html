@@ -4,22 +4,16 @@
         <h1>Mín Síða</h1>
         <div>
             <div class="card">
-                <img src="{{ profile.profile_img }}" alt="{{ profile.profile_img }}" style="width:90%; margin: 1rem auto;">
+                <img src="{{ profile.profile_img }}" alt="{{ profile.profile_image }}" style="width:90%; margin: 1rem auto;">
                 <h1>{{ user.first_name }} {{ user.last_name }}</h1>
                 <p class="email">{{ user.email }}</p>
-                <div style="margin: 24px 10px;">
-                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                <p><button>Contact</button></p>
-                </div>
             </div>
         </div>
     </div>
     <form class="form form-horizontal" method="post">
         {% csrf_token %}
         {{ form }}
+        {{ image_form }}
         <input type="submit" class="btn btn-primary" value="Update"/>
     </form>
 

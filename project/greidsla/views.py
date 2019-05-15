@@ -3,8 +3,6 @@ from django.contrib.auth.decorators import login_required, permission_required
 from fasteignasala.models import Apartment
 from greidsla.forms.greidsluform import GreidsluferliForm
 from greidsla.models import Buyer
-from notandi.models import Profile
-
 
 @login_required
 def greidsla(request, id):
@@ -20,7 +18,6 @@ def greidsla(request, id):
 
 @login_required
 def stadfesting(request, id):
-    profile = Profile.objects.filter(user=request.user).first()
     apartment = get_object_or_404(Apartment, pk=id)
-    context = { 'profile': profile, 'apartment': apartment}
+    context = { 'apartment': apartment}
     return render(request, 'greidsluferli/stadfesting.html', context)
