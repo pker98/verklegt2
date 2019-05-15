@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form class="form form-horizontal pay-form" action="{% url 'stadfesting' id %}" method="post">
+    {% csrf_token %}
+      <div class="modal-body row">
+        <div class="col-md-6">
+        <h3 class="h3">Persónu upplýsingar</h3>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputFirstname">Fullt nafn:</label>
+                {{ payment_form.name }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputKennitala">Kennitala:</label>
+                {{ payment_form.ssn }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputAddress">Heimilisfang:</label>
+                {{ payment_form.address }}
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputZip">Póstnúmer:</label>
+                {{ payment_form.zip }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="inputPhone">Símanúmer:</label>
+                {{ payment_form.phone }}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h3 class="h3">Greiðslu upplýsingar</h3>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="card-holder-name">Kortahafi:</label>
+                {{ payment_form.pay_name }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="card-number">Kortanúmer:</label>
+                {{ payment_form.card_number }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+            <label for="expiry-month">Gildistími (mán/ár):</label>
+            {{ payment_form.date_of_expiration }}
+            </div>
+            <div class="form-group col-md-4">
+                <label for="cvv">Öryggisnúmer (CVC):</label>
+                {{ payment_form.ccv }}
+            </div>
+        </div>
+            <input type="submit" value="Borga" class="btn btn-primary pull-right" style="clear:both; margin:10px 0" />
+    </div>
+    </div>
+    </form>
+{% endblock %}
