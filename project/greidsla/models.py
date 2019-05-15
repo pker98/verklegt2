@@ -5,7 +5,6 @@ class Buyer(models.Model):
     ssn = models.IntegerField(max_length=10)
     address = models.CharField(max_length=50)
     zip = models.IntegerField(max_length=50)
-    city = models.CharField(max_length=100)
     phone = models.IntegerField(max_length=10)
     pay_name = models.CharField(max_length=60)
     card_number = models.CharField(max_length=16)

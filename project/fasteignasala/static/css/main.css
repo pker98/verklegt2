@@ -289,17 +289,6 @@ select option:nth-child(odd) {
     border-radius: 25px;
 }
 
-/* Vertical line in the middle of the payment form */
-.vl {
-    border-left: 1px solid black;
-    height: 90%;
-    position: absolute;
-    left: 47%;
-    margin-left: -3px;
-    top: 5%;
-}
-
-
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
