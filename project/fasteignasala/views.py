@@ -93,7 +93,7 @@ def get_apartm_by_id(request, id):
             new_history = History(user_id=request.user.id, apartment_id=id)
             new_history.save()
     apartment = get_object_or_404(Apartment, pk=id)
-    format_price = '{0:,}'.format(apartment.price)
+    format_price = format(apartment.price,',d').replace(",",".")
     return render(request, 'hus/husnaedi_details.html', {
 
     'apartment': get_object_or_404(Apartment, pk=id), 'price' : format_price
