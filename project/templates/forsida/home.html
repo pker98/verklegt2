@@ -162,11 +162,16 @@
             </div>
         </form>
 
+       <a class="arrow-container" href="#apartment_list">
+          <span class="down-arrow">
+          </span>
+        </a>
+
     <div id="sort-block">
         <div id="sort-head">
             Flokka eftir
         </div>
-        <select onchange="sort()" id="sortval" class="selectpicker">
+        <select onchange="sort()" id="sortval">
             <option>Verð: hæsta - lægsta</option>
             <option>Verð: lægsta - hæsta</option>
             <option>Stærð: stærsta - minnsta</option>
@@ -179,7 +184,7 @@
     </div>
 
 
-    <div class="apartment_list">
+    <div class="apartment_list" id="apartment_list">
         <h2 class="text-center pt-3 pb-3">Allar eignir:</h2>
             {% for apartment in apartments %}
                 {% include 'hus/Eitt_hus.html' with apartment=apartment %}

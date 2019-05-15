@@ -9,6 +9,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import User
 from history.models import History
+import datetime
 
 def home(request, query=None):
     if 'search_filter' in request.GET:
@@ -84,8 +85,13 @@ def soluskra(request, query=None):
 def get_apartm_by_id(request, id):
     if request.method == "GET" and User.is_authenticated:
         get_object_or_404(Apartment, pk=id)
-        history = History(user_id=request.user.id, apartment_id=id)
-        history.save()
+        try:
+            old_history = History.objects.get(user_id=request.user.id, apartment_id=id)
+            old_history.viewed_on = datetime.datetime.now()
+            old_history.save()
+        except History.DoesNotExist:
+            new_history = History(user_id=request.user.id, apartment_id=id)
+            new_history.save()
     return render(request, 'hus/husnaedi_details.html', {
     'apartment': get_object_or_404(Apartment, pk=id)
     })
