@@ -25,6 +25,7 @@ def innskraning(request):
 
 def profile(request):
     profile = Profile.objects.filter(user=request.user).first()
+    #user = User.objects.filter(user=request.user).first()#Not sure if I add user here
     history_list = History.objects.filter(user_id=request.user.id)
     if request.method == "POST":
         form = Profile_form(instance=profile, data=request.POST)

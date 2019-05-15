@@ -2,13 +2,13 @@
 {% block content %}
     <!--{% if form.profile_img is not_empty %} {% endif %}-->
     <h1>Þinn aðgangur</h1>
-    <img class="rounded-circle account-image" src="{{ form.profile_img }}">
-    <p>Notandanafn: {{ user.username }}</p>
+    <img class="rounded-circle account-image" src="{{ user.profile.profile_img }}">
+    <!--<p>Notandanafn: {{ user.username }}</p>
     <p>Netfang: {{ user.email }}</p>
-    <p>Fullt Nafn: {{ user.first_name }} {{ user.last_name }}</p>
+    <p>Fullt Nafn: {{ user.first_name }} {{ user.last_name }}</p>-->
     <form class="form form-horizontal" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form }}
         <input type="submit" class="btn btn-primary" value="Update"/>
     </form>
 
@@ -19,3 +19,5 @@
         </a>
     {% endfor %}
 {% endblock content %}
+
+<!--{{ form.as_p }}-->
