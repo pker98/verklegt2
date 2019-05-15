@@ -7,8 +7,9 @@ from notandi.models import Profile
 
 @login_required
 def greidsla(request, id):
+    profile = Profile.objects.filter(user=request.user)
     apartment = get_object_or_404(Apartment, pk=id)
-    context = { 'apartment': apartment}
+    context = { 'profile': profile, 'apartment': apartment}
     return render(request, 'greidsluferli/greidsluferli.html', context)
 
 @login_required
