@@ -279,6 +279,23 @@ select option:nth-child(odd) {
     padding: 0;
 }
 
+.navbar-nav a {
+    border-bottom: 0.15rem solid #F8F9FB;
+    position: relative;
+    bottom: 0;
+    transition: 0.2s;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+}
+.navbar-nav li:hover a {
+    border-bottom: 0.15rem solid #F5BB63;
+    opacity: 1;
+    position: relative;
+    bottom: 0.15rem;
+}
+
 .see_more p {
     position: relative;
 }
