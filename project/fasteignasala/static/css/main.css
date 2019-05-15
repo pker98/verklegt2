@@ -263,10 +263,10 @@ select option:nth-child(odd) {
 
 #profile_display {
     display: flex;
-    margin-top: 0.5rem;
-    padding: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
     justify-content: center;
-    box-shadow: 0 10px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 #profile_display form {
