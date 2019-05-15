@@ -1,26 +1,31 @@
 from django import forms
 from django.forms import ModelForm, widgets
-from greidsla.models import Payment
+from greidsla.models import Buyer
 
-class GreidsluferliForm(forms.ModelForm):
+class GreidsluferliForm(ModelForm):
     class Meta:
-        model = Payment
+        model = Buyer
         exclude = ['id']
         widgets = {
             'name': widgets.TextInput(attrs={ 'class': 'form-control' }),
-            'ssn': widgets.NumberInput(attr={ 'class': 'form-control'}),
+            'ssn': widgets.NumberInput(attrs={ 'class': 'form-control'}),
             'address': widgets.TextInput(attrs={'class': 'form-control'}),
             'zip': widgets.NumberInput(attrs={'class': 'form-control'}),
             'city': widgets.TextInput(attrs={'class': 'form-control'}),
-            'country': widgets.Select(choices={('Einbýlishús', 'Einbýlishús'),('Tvíbýlishús','Tvíbýlishús'),('Fjölbýlishús', 'Fjölbýlishús')}),
             'phone': widgets.NumberInput(attrs={'class': 'form-control'}),
             'pay_name': widgets.TextInput(attrs={'class': 'form-control'}),
             'card_number': widgets.NumberInput(attrs={ 'class': 'form-control' }),
-            'date_of_expiration': widgets.SelectDateWidget(empty_label=("Ár", "Mán")),
+            'date_of_expiration': widgets.SelectDateWidget(empty_label=("Ár", "Mán", "Dagur")),
             'ccv': widgets.NumberInput(attrs={ 'class': 'form-control'})
         }
-        labels={
-            'name': 'Korthafi',
+        labels = {
+            'name': 'Fullt nafn',
+            'ssn': 'Kennitala',
+            'address': 'Heimilisfang',
+            'zip': 'Póstnúmer',
+            'city': 'Borg',
+            'phone': 'Sími',
+            'pay_name': 'Korthafi',
             'cardnumber': 'Kortanúmer',
             'ccv': 'Öryggisnúmer (CCV)',
             'date_of_expiration': 'Gildistími'
