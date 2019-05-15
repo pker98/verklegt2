@@ -8,11 +8,15 @@ from django import forms
 class Profile_form(ModelForm):
     class Meta:
         model = Profile
-        exclude = ['id', 'user']
+        exclude = ['id']
         widgets = {
-            'user': widgets.TextInput(attrs={'class': 'form-control'}),#the additional
-            'email': widgets.TextInput(attrs={'class': 'form-control'}),
-            'profile_img': widgets.TextInput(attrs={'class': 'form-control'})
+            'user': widgets.TextInput(attrs={'class': 'form-control'}),
+            'email': widgets.EmailInput(attrs={'class': 'form-control'}),
+            'profile_img': widgets.URLInput(attrs={'class': 'form-control'})
+        }
+        labels = {
+            'user': 'Notandi',
+            'profile_img': 'Profile Mynd'
         }
 
 class RegistrationForm(UserCreationForm):
