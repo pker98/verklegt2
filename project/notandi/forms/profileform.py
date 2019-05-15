@@ -7,15 +7,15 @@ from django import forms
 
 class ProfileForm(ModelForm):
     class Meta:
-        model = User
-        exclude = ['id', 'password', 'first_name', 'last_name', 'last_login', 'is_superuser', 'is_staff', 'is_active', 'date_joined']
+        model = Profile
+        exclude = ['id', 'user']
         widgets = {
-            'username': widgets.TextInput(attrs={'class': 'form-control'}),
+            'user': widgets.TextInput(attrs={'class': 'form-control'}),
             'email': widgets.TextInput(attrs={'class': 'form-control'}),
             'profile_img': widgets.URLInput(attrs={'class': 'form-control'})
         }
         labels = {
-            'username': 'Notandi',
+            'user': 'Notandi',
             'email': 'Email',
             'profile_img': 'Profile Mynd'
         }
