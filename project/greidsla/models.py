@@ -2,10 +2,10 @@ from django.db import models
 
 class Buyer(models.Model):
     name = models.CharField(max_length=60)
-    ssn = models.IntegerField(max_length=10)
+    ssn = models.IntegerField()
     address = models.CharField(max_length=50)
-    zip = models.IntegerField(max_length=50)
-    phone = models.IntegerField(max_length=10)
+    zip = models.IntegerField()
+    phone = models.IntegerField()
     pay_name = models.CharField(max_length=60)
     card_number = models.CharField(max_length=16)
     date_of_expiration = models.DateField(max_length=8)
