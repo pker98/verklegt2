@@ -17,6 +17,11 @@ h2 {
     display: inline-block;
 }
 
+
+.yfirlit td {
+    width: 20rem;
+    height: 2rem;
+}
 .seller .last_name {
     font-size: 1.8rem;
     font-weight: lighter;

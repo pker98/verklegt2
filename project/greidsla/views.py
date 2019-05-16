@@ -12,22 +12,26 @@ def send_get_form(form=None):
 
 @login_required
 def greidsla(request, id):
-    if request.method == 'POST':
-        payment_form = GreidsluferliForm(data=request.POST)
-        send_get_form(payment_form)
-        return redirect('yfirlit', id=id)
+
+    if request.method == 'GET':
+        form = GreidsluferliForm(data=request.GET)
+        if form.is_valid():
+            return redirect('yfirlit')
     else:
-        payment_form = GreidsluferliForm()
-    context = {'payment_form': payment_form, 'id': id}
+        form = GreidsluferliForm()
+    context = {'payment_form': form, 'id': id}
     return render(request, 'greidsluferli/greidsluupplysingar.html', context)
 
 @login_required
 def yfirlit(request, id):
+    data = 1
     apartment = get_object_or_404(Apartment, pk=id)
     umsyslugjald = apartment.price * 0.8
     total = apartment.price + 17500 + umsyslugjald + 2500
     context = { 'apartment': apartment,
-                'special_price': umsyslugjald, 'total': total}
+                'special_price': umsyslugjald, 'total': total,
+                'data': data}
+
     return render(request, 'greidsluferli/greidsluferliyfirlit.html', context)
 
 @login_required

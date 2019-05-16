@@ -1,28 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2 class="h2">{{ paymentinfo.name }} {{ paymentinfo.email }} {{ paymentinfo.phone }}</h2>
-    <p>{{ apartment.address }}</p> <p>1: {{ test }} 2: {{ test2 }} 3: {{ test3 }}</p>
-    <table>
-  <tr>
-    <th>Kostnaðarliður</th>
-    <th>Verð</th>
-  </tr>
-  <tr>
-    <td>Fasteign: {{ apartment.address }}</td>
-    <td>{{ apartment.price }} kr.</td>
-  </tr>
-  <tr>
-    <td>Þjónustugjald</td>
-    <td>17500 kr.</td>
-  </tr>
-  <tr>
-    <td>Umsýslugjald</td>
-    <td>{{ special_price }}</td>
-  </tr>
-    <tr>
-    <td>Þinglýsingarkostnaður</td>
-    <td>2500</td>
-  </tr>
-    <h3 class="h3">Heildarkostnaður: {{ total }} kr.</h3>
-</table>
+    <h2 class="h2">{{ data}}</h2>
+    <table class="yfirlit">
+        <tr>
+            <th>Kostnaðarliður</th>
+            <th>Verð</th>
+        </tr>
+        <tr>
+            <td>Fasteign: {{ apartment.address }}</td>
+            <td>{{ apartment.price }} kr.</td>
+        </tr>
+        <tr>
+            <td>Þjónustugjald</td>
+            <td>17500 kr.</td>
+        </tr>
+        <tr>
+            <td>Umsýslugjald</td>
+            <td>{{ special_price }}</td>
+        </tr>
+        <tr>
+            <td>Þinglýsingarkostnaður</td>
+            <td>2500</td>
+        </tr>
+        <tr style="border-top: 0.1rem solid lightgray">
+            <td>
+                <h3 style="font-weight: normal; font-size: 1.5rem" class="h3">Heildarkostnaður:</h3>
+            </td>
+            <td>
+                <span style="display: inline-block; font-weight: bold; font-size: 1.5rem">{{ total }} kr.</span>
+            </td>
+        </tr>
+    </table>
 {% endblock content %}
