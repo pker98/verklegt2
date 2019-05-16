@@ -9,7 +9,9 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import User
 from history.models import History
+from notandi.models import ProfileImage
 import datetime
+
 
 def home(request, query=None):
     if 'search_filter' in request.GET:
@@ -56,6 +58,7 @@ def home(request, query=None):
 
     context = {"apartments" : Apartment.objects.all(), 'title' : 'LúxHús'}
     return render(request, 'forsida/home.html', context)
+
 
 def soluskra(request, query=None):
     if 'search_filter' in request.GET:
@@ -116,8 +119,7 @@ def get_apartm_by_id(request, id):
     apartment = get_object_or_404(Apartment, pk=id)
     format_price = format(apartment.price,',d').replace(",",".")
     return render(request, 'hus/husnaedi_details.html', {
-
-    'apartment': get_object_or_404(Apartment, pk=id), 'price' : format_price
+        'apartment': get_object_or_404(Apartment, pk=id), 'price' : format_price
     })
 
 
@@ -137,12 +139,14 @@ def create_apartment(request):
         'form': form
     })
 
+
 @login_required
 @permission_required('apartment.can_delete_appartment', raise_exception=True)
 def delete_apartment(request, id):
     apartment = get_object_or_404(Apartment, pk=id)
     apartment.delete()
     return redirect(reverse('fasteignasala-home'))
+
 
 @login_required
 @permission_required('apartment.can_change_appartment', raise_exception=True)
@@ -160,9 +164,16 @@ def update_apartment(request, id):
         'id': id
     })
 
+
 def um_okkur(request):
     return render(request, 'um_okkur/um_okkur.html', {"title": "Um okkur"})
 
-def starfsmenn(request):
-    return render(request, 'starfsmenn/starfsmenn.html', {"title": "Starfsmenn"})
 
+def starfsmenn(request):
+    users = User.objects.filter(is_staff=True)
+    context = {
+        'users': users,
+        'title': "Starfsmenn",
+        'profiles': ProfileImage.objects.all()
+    }
+    return render(request, 'starfsmenn/starfsmenn.html', context)

@@ -2,10 +2,13 @@
 {% block content %}
     <title>Starfsmenn</title>
     <h1>Starfsmenn</h1>
-    {% for user in user %}
-        {% if user.is_staff %}
-            <h1>{{ user.first_name }} {{ user.last_name }}</h1>
-            <p>{{ user.email }}</p>
-        {% endif %}
+    {% for user in users %}
+        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+        <p>{{ user.email }}</p>
+        {% for img in profiles %}
+            {% if img.user_id == user.id %}
+                <img src="{{ img.profile_img }}">
+            {% endif %}
+        {% endfor %}
     {% endfor %}
 {% endblock content %}
