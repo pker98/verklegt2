@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from fasteignasala.models import Apartment
 from greidsla.forms.greidsluform import GreidsluferliForm
 
+
 def send_get_form(form=None):
     if form:
         temp_form = form
@@ -21,6 +22,7 @@ def greidsla(request, id):
     context = {'payment_form': payment_form, 'id': id}
     return render(request, 'greidsluferli/greidsluupplysingar.html', context)
 
+
 @login_required
 def yfirlit(request, id):
     apartment = get_object_or_404(Apartment, pk=id)
@@ -29,6 +31,7 @@ def yfirlit(request, id):
     context = { 'apartment': apartment,
                 'special_price': umsyslugjald, 'total': total}
     return render(request, 'greidsluferli/greidsluferliyfirlit.html', context)
+
 
 @login_required
 def stadfesting(request, id):
