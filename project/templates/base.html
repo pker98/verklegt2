@@ -76,8 +76,21 @@
     <script src="{% static 'js/apartments.js' %}"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <footer class="footer">
-        <div><h2>LúxHús</h2></div>
-        <p>Copyright &copy; 2019, Lúxhús</p>
+        <div class="footer-section">
+            <h3>Finna fasteign</h3>
+            <a href="{% url 'soluskra-home' %}">Söluskrá</a>
+        </div>
+        <div class="footer-section">
+            <h3>Síður</h3>
+            <a href="{% url 'fasteignasala-home' %}">Heim</a>
+            <a href="{% url 'starfsmenn-home' %}">Starfsmenn</a>
+            <a href="{% url 'um-okkur-home' %}">Um okkur</a>
+        </div>
+        <div class="footer-section">
+            <h3>LúxHús</h3>
+            <p>Copyright &copy; 2019, LúxHús</p>
+        </div>
+
     </footer>
 </body>
 </html>

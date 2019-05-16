@@ -1,8 +1,13 @@
-html, body {
+html {
     font-family: Roboto, sans-serif;
     scroll-behavior: smooth;
     height: 100%;
 }
+
+body {
+    height: 100%;
+}
+
 h2 {
     font-size: 1.5rem;
 }
@@ -46,15 +51,18 @@ select option:nth-child(odd) {
 
 
 .apartment_address {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: lighter;
     text-align: left;
+    color: black;
+    font-weight: lighter;
 }
 
 .apartment_zip {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: bold;
     float:right;
+    color: black;
 }
 
 .price {
@@ -296,23 +304,41 @@ select option:nth-child(odd) {
 .footer {
     position: relative;
     background-color: #6A6A74;
-    height: 8rem;
-    margin-top: -8rem;
+    height: 12rem;
+    margin-top: -12rem;
     clear: both;
     color: white;
     padding: 2rem;
-
-
+    display: flex;
+    justify-content: center;
 }
 
-.footer div {
-    margin: auto;
+.footer h3 {
+    color: #cfcfcf;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.footer-section {
+    margin: 0 auto;
+    width: 15rem;
+}
+
+
+
+.footer a, .footer p {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: white;
+    display: block;
+    margin: 0.5rem auto;
 }
 
 #main {
     min-height: 100%;
     overflow: auto;
-    padding-bottom: 10rem;
+    padding-bottom: 14rem;
 }
 
 

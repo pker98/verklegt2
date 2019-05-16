@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'greidsla.apps.GreidslaConfig',
     'fasteignasala.apps.FasteignasalaConfig',
     'history.apps.HistoryConfig',
+    'django.contrib.humanize',
     'notandi.apps.NotandiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
 ]
 

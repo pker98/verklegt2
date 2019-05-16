@@ -104,7 +104,7 @@ def soluskra(request, query=None):
 
 
 def get_apartm_by_id(request, id):
-    if request.method == "GET" and User.is_authenticated:
+    if request.method == "GET" and request.user.is_authenticated:
         get_object_or_404(Apartment, pk=id)
         try:
             old_history = History.objects.get(user_id=request.user.id, apartment_id=id)
