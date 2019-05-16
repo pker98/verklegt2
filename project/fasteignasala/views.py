@@ -54,12 +54,14 @@ def find_apartment(request):
 
     return apartments
 
+
 def home(request, query=None):
     if 'search_filter' in request.GET:
         apartments = find_apartment(request)
         return JsonResponse({'data': apartments})
     context = {"apartments" : Apartment.objects.all(), 'title' : 'LúxHús'}
     return render(request, 'forsida/home.html', context)
+
 
 def soluskra(request, query=None):
     if 'search_filter' in request.GET:
@@ -82,9 +84,8 @@ def get_apartm_by_id(request, id):
     apartment = get_object_or_404(Apartment, pk=id)
     format_price = format(apartment.price,',d').replace(",",".")
     return render(request, 'hus/husnaedi_details.html', {
-
-    'apartment': get_object_or_404(Apartment, pk=id), 'price' : format_price,
-     'profiles' : ProfileImage.objects.all()
+        'apartment': get_object_or_404(Apartment, pk=id), 'price' : format_price,
+        'profiles' : ProfileImage.objects.all()
     })
 
 
@@ -107,12 +108,14 @@ def create_apartment(request):
         'form': form
     })
 
+
 @login_required
 @permission_required('apartment.can_delete_appartment', raise_exception=True)
 def delete_apartment(request, id):
     apartment = get_object_or_404(Apartment, pk=id)
     apartment.delete()
     return redirect(reverse('fasteignasala-home'))
+
 
 @login_required
 @permission_required('apartment.can_change_appartment', raise_exception=True)
@@ -130,8 +133,10 @@ def update_apartment(request, id):
         'id': id
     })
 
+
 def um_okkur(request):
     return render(request, 'um_okkur/um_okkur.html', {"title": "Um okkur"})
+
 
 def starfsmenn(request):
     users = User.objects.filter(is_staff=True)

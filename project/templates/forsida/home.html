@@ -129,8 +129,6 @@
 
                     </div>
                 </div>
-
-
                 <div class="dropdown show d-inline" id="type">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Tegund
@@ -161,29 +159,22 @@
                 <button type="button" id="search-button" class="btn btn-default orange-background">Leita</button>
             </div>
         </form>
-
        <a class="arrow-container" href="#apartment_list">
           <span class="down-arrow">
           </span>
         </a>
-
-    <div id="sort-block">
-        <div id="sort-head">
-            Flokka eftir
+        <div id="sort-block">
+            <div id="sort-head">
+                Flokka eftir
+            </div>
+            <select onchange="sort()" id="sortval">
+                <option value="1" selected="selected">Verð: hæsta - lægsta</option>
+                <option value="2">Verð: lægsta - hæsta</option>
+                <option value="3">Stærð: stærsta - minnsta</option>
+                <option value="4">Stærð: minnsta - stærsta</option>
+            </select>
         </div>
-        <select onchange="sort()" id="sortval">
-            <option value="1" selected="selected">Verð: hæsta - lægsta</option>
-            <option value="2">Verð: lægsta - hæsta</option>
-            <option value="3">Stærð: stærsta - minnsta</option>
-            <option value="4">Stærð: minnsta - stærsta</option>
-        </select>
     </div>
-
-
-
-    </div>
-
-
     <div class="apartment_list" id="apartment_list">
         <h2 class="text-center pt-3 pb-3">Allar eignir:</h2>
             {% for apartment in apartments %}
