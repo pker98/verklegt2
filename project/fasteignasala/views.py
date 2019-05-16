@@ -134,5 +134,10 @@ def um_okkur(request):
     return render(request, 'um_okkur/um_okkur.html', {"title": "Um okkur"})
 
 def starfsmenn(request):
-    return render(request, 'starfsmenn/starfsmenn.html', {"title": "Starfsmenn"})
-
+    users = User.objects.filter(is_staff=True)
+    context = {
+        'users': users,
+        'title': "Starfsmenn",
+        'profiles': ProfileImage.objects.all()
+    }
+    return render(request, 'starfsmenn/starfsmenn.html', context)
