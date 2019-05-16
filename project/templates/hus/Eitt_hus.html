@@ -1,10 +1,8 @@
 <div class="apartment_container">
     <a href="/{{ apartment.id }}">
-
         <div class="see_more">
             <p>Skoða nánar</p>
         </div>
-
         <div class="crop">
             <img class="apartment-img" src="{{ apartment.apartmentimage_set.first.image }}" />
         </div>
@@ -12,13 +10,11 @@
         <p class="apartment_address">{{ apartment.address }}
             <span class="apartment_zip">{{ apartment.zip }} </span>
         </p>
-
         <div class="info">
             <p>{{ apartment.type }}</p>
             <p>{{ apartment.num_rooms }} herbergi</p>
             <p>{{ apartment.size }} m<sup>2</sup></p>
         </div>
-
         <div class="price_container">
             <div class="price-text">
               Verð: {{ apartment.price }} kr.

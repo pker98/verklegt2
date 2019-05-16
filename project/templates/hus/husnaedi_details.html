@@ -25,7 +25,6 @@
             <span class="dot" onclick="currentSlide({{ forloop.counter }})"></span>
         {% endfor %}
         </div>
-
         <div class="details">
             <div class="details_section">
                 <div class="details_name">Tegund: </div>
@@ -39,17 +38,12 @@
                 <div class="details_name">Fjöldi herbergja: </div>
                 <div class="details_value">{{ apartment.num_rooms }}</div>
             </div>
-
         </div>
         <div class="details_description">
             <h2>Lýsing:</h2>
             <p>{{ apartment.description }}</p>
         </div>
         <br>
-        <!-- The dots/circles -->
-
-
-
     </div>
         <a href="{% url 'greidsla' apartment.id %}" id="btn-buy" class='block btn btn-primary m-2'>Kaupa húsnæði</a>
         {%  if user.is_superuser %}
