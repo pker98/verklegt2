@@ -156,7 +156,7 @@
                 <input type="search" class="form-control" id="search-box" placeholder="Leita eftir heimilisfangi...">
             </div>
             <div class="input-group-btn">
-                <button type="button" id="search-button" class="btn btn-default orange-background">Leita</button>
+                <button type="button" id="search-button" onclick="get_apart()" class="btn btn-default orange-background">Leita</button>
             </div>
         </form>
        <a class="arrow-container" href="#apartment_list">
@@ -165,16 +165,17 @@
         </a>
         <div id="sort-block">
             <div id="sort-head">
-                Flokka eftir
+                Raða eftir
             </div>
-            <select onchange="sort()" id="sortval">
-                <option value="1" selected="selected">Verð: hæsta - lægsta</option>
-                <option value="2">Verð: lægsta - hæsta</option>
-                <option value="3">Stærð: stærsta - minnsta</option>
-                <option value="4">Stærð: minnsta - stærsta</option>
+            <select id="order_option" onchange="get_apart()">
+                <option type="button" value="1" selected="selected">Verð: lægsta - hæsta</option>
+                <option type="button" value="2">Verð: hæsta - lægsta</option>
+                <option type="button" value="3">Stærð: minnsta - stærsta</option>
+                <option type="button" value="4">Stærð: stærsta - minnsta</option>
             </select>
         </div>
     </div>
+
     <div class="apartment_list" id="apartment_list">
         <h2 class="text-center pt-3 pb-3">Allar eignir:</h2>
             {% for apartment in apartments %}

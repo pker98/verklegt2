@@ -31,6 +31,16 @@ def find_apartment(request):
             type_list[i] = "Tvíbýlishús"
         if type_list[i] == '3':
             type_list[i] = "Fjölbýlishús"
+
+    order = request.GET.get('order')
+    if order == '1':
+        value = 'price'
+    elif order == '2':
+        value = '-price'
+    elif order == '3':
+        value = 'size'
+    elif order == '4':
+        value = '-size'
     apartments = [{
         'id': x.id,
         'address': x.address,
@@ -50,25 +60,23 @@ def find_apartment(request):
         filter(price__gte=min_mkr, price__lte=max_mkr).
         filter(num_rooms__gte=min_rooms, num_rooms__lte=max_rooms).
         filter(size__gte=min_size, size__lte=max_size).
-        filter(zip__in=zip_list).filter(type__in=type_list)]
-
+        filter(zip__in=zip_list).filter(type__in=type_list).order_by(value)]
     return apartments
 
 
-def home(request, query=None):
-    if 'search_filter' in request.GET:
+def home(request):
+    if 'search_filter' in request.GET or 'order' in request.GET:
         apartments = find_apartment(request)
         return JsonResponse({'data': apartments})
-    context = {"apartments" : Apartment.objects.all(), 'title' : 'LúxHús'}
+    context = {"apartments" : Apartment.objects.all().order_by('price'), 'title' : 'LúxHús'}
     return render(request, 'forsida/home.html', context)
 
-
-def soluskra(request, query=None):
-    if 'search_filter' in request.GET:
+def soluskra(request):
+    if 'search_filter' in request.GET or 'order' in request.GET:
         apartments = find_apartment(request)
         return JsonResponse({'data': apartments})
-    context = {"apartments": Apartment.objects.all(), 'title' : 'Söluskrá'}
-    return render(request, 'soluskra/soluskra.html', context)
+    context = {"apartments": Apartment.objects.all().order_by('price'), 'title': 'LúxHús'}
+    return render(request, 'forsida/home.html', context)
 
 
 def get_apartm_by_id(request, id):
