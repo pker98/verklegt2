@@ -2,7 +2,7 @@
 {% block content %}
     <form class="form form-horizontal" action="{% url 'nytt_husnaedi' %}" method="post">
     {% csrf_token %}
-    {{ form }}
+    {{ form.as_p }}
     <input type="submit" value="Nýskrá" id="btn-update" class="btn btn-primary pull-right" style="clear:both; margin:10px 0" />
     </form>
 {% endblock %}

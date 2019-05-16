@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import User
 from history.models import History
 import datetime
+from notandi.models import ProfileImage
 
 def home(request, query=None):
     if 'search_filter' in request.GET:
@@ -117,7 +118,8 @@ def get_apartm_by_id(request, id):
     format_price = format(apartment.price,',d').replace(",",".")
     return render(request, 'hus/husnaedi_details.html', {
 
-    'apartment': get_object_or_404(Apartment, pk=id), 'price' : format_price
+    'apartment': get_object_or_404(Apartment, pk=id), 'price' : format_price,
+     'profiles' : ProfileImage.objects.all()
     })
 
 
@@ -127,7 +129,10 @@ def create_apartment(request):
     if request.method == 'POST':
         form = HusnaediCreateForm(data=request.POST)
         if form.is_valid():
+
             apartment = form.save()
+            apartment.seller = request.user
+            apartment.save()
             apartment_image = ApartmentImage(image=request.POST['image'], apartment=apartment)
             apartment_image.save()
             return redirect('fasteignasala-home')

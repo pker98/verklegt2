@@ -12,6 +12,39 @@ h2 {
     font-size: 1.5rem;
 }
 
+.seller .first_name {
+    font-size: 1.8rem;
+    display: inline-block;
+}
+
+.seller .last_name {
+    font-size: 1.8rem;
+    font-weight: lighter;
+    display: inline-block;
+}
+
+.seller img {
+    width:10rem;
+    height: 10rem;
+}
+
+.seller-info {
+    flex-grow: 8;
+    padding: 0 1rem;
+}
+
+.seller {
+    width: 100%;
+    margin: 1rem auto;
+    background-color: whitesmoke;
+    padding: 1rem;
+    border-color: #9e9e9e;
+    border-width: 0.1rem;
+    border-style: solid;
+    border-radius: 0.2rem;
+    display: flex;
+    justify-content: space-evenly;
+}
 .btn-primary, .btn-primary:active, .btn-primary:visited {
     background-color: #F5BB63;
     border: solid #F5BB63;

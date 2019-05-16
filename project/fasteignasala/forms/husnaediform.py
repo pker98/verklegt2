@@ -40,7 +40,7 @@ class HusnaediCreateForm(ModelForm):
     image = forms.CharField(required=True, widget=forms.TextInput(attrs={ 'class': 'form-control' }))
     class Meta:
         model = Apartment
-        exclude = [ 'id' ]
+        exclude = [ 'id', 'seller' ]
         widgets = {
             'address': widgets.TextInput(attrs={ 'class': 'form-control' }),
             'price': widgets.NumberInput(attrs={ 'class': 'form-control' }),
