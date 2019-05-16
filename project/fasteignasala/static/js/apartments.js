@@ -91,13 +91,25 @@ $(document).ready(function() {
     $('#search-button').on('click', function(e) {
         e.preventDefault();
         var zip_list = []
+        var type_list = []
         for (i = 0; i < 15; i++) {
             zip = 'p' + (i+1)
+            type = 't' + (i+1)
             if (document.getElementById(zip).checked) {
                 zip_list.push(Number($('#' + zip).val()))
             }
+            if (i < 3) {
+                if (document.getElementById(type).checked) {
+                type_list.push(Number($('#' + type).val()))
+                }
+            }
         }
-        console.log(zip_list)
+        if (zip_list === undefined || zip_list.length == 0) {
+            zip_list = [101, 170, 190, 200, 210, 220, 225, 230, 245, 270, 300, 400, 580, 600]
+        }
+        if (type_list === undefined || type_list.length == 0) {
+            type_list = [1, 2, 3]
+        }
         var searchText = $('#search-box').val();
         var min_size = $("#slider1").slider("values")[0];
         var max_size = $("#slider1").slider("values")[1];
@@ -108,7 +120,7 @@ $(document).ready(function() {
         $.ajax({
             url: '?search_filter=' + searchText + '&min_mkr=' + min_mkr + '&max_mkr=' + max_mkr +
                 '&min_size=' + min_size + '&max_size=' + max_size + '&min_rooms=' + min_rooms + '&max_rooms=' +
-                max_rooms + '&zip_list=' + zip_list,
+                max_rooms + '&zip_list=' + zip_list + '&type_list=' + type_list,
             type: 'GET',
             success: [ function(resp) {
                 var newHtml = resp.data.map(d => {

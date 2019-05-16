@@ -20,6 +20,17 @@ def home(request, query=None):
         max_size = request.GET.get('max_size')
         min_rooms = request.GET.get('min_rooms')
         max_rooms = request.GET.get('max_rooms')
+        zip_values = request.GET.get('zip_list')
+        zip_list = zip_values.split(",")
+        type_values = request.GET.get('type_list')
+        type_list = type_values.split(",")
+        for i in range(len(type_list)):
+            if type_list[i] == '1':
+                type_list[i] = "Einbýlishús"
+            if type_list[i] == '2':
+                type_list[i] = "Tvíbýlishús"
+            if type_list[i] == '3':
+                type_list[i] = "Fjölbýlishús"
         apartments = [{
             'id': x.id,
             'address': x.address,
@@ -35,19 +46,15 @@ def home(request, query=None):
             'town': x.town,
             'zip': x.zip,
             'first_image': x.apartmentimage_set.first().image
-        } for x in Apartment.objects.filter(address__icontains=search_filter).filter(price__gte=min_mkr, price__lte=max_mkr).
-        filter(num_rooms__gte=min_rooms, num_rooms__lte=max_rooms).filter(size__gte=min_size, size__lte=max_size)]
+        } for x in Apartment.objects.filter(address__icontains=search_filter).
+            filter(price__gte=min_mkr, price__lte=max_mkr).
+            filter(num_rooms__gte=min_rooms, num_rooms__lte=max_rooms).
+            filter(size__gte=min_size, size__lte=max_size).
+            filter(zip__in=zip_list).filter(type__in=type_list)]
+
         return JsonResponse({ 'data': apartments })
 
-    #sortval = request.REQUEST.get['sortval']
-    #results = Apartment.objects.filter(name__icontains=query).order_by(sortval)
-
-    #if request.is_ajax():
-        #t = loader.get_template('search_results.html')
-        #html = t.render(RequestContext({'results': results})
-        #return HttpResponse(json.dumps({'html': html}))
-
-    context = {"apartments" : Apartment.objects.all()}
+    context = {"apartments" : Apartment.objects.all(), 'title' : 'LúxHús'}
     return render(request, 'forsida/home.html', context)
 
 def soluskra(request, query=None):
@@ -59,7 +66,17 @@ def soluskra(request, query=None):
         max_size = request.GET.get('max_size')
         min_rooms = request.GET.get('min_rooms')
         max_rooms = request.GET.get('max_rooms')
-        zip_list = request.GET.get('zip_list')
+        zip_values = request.GET.get('zip_list')
+        zip_list = zip_values.split(",")
+        type_values = request.GET.get('type_list')
+        type_list = type_values.split(",")
+        for i in range(len(type_list)):
+            if type_list[i] == '1':
+                type_list[i] = "Einbýlishús"
+            if type_list[i] == '2':
+                type_list[i] = "Tvíbýlishús"
+            if type_list[i] == '3':
+                type_list[i] = "Fjölbýlishús"
         apartments = [{
             'id': x.id,
             'address': x.address,
@@ -75,8 +92,11 @@ def soluskra(request, query=None):
             'town': x.town,
             'zip': x.zip,
             'first_image': x.apartmentimage_set.first().image
-        } for x in Apartment.objects.filter(address__icontains=search_filter).filter(price__gte=min_mkr, price__lte=max_mkr)
-            .filter(num_rooms__gte=min_rooms, num_rooms__lte=max_rooms).filter(size__gte=min_size, size__lte=max_size).filter(zip__in=[zip_list])]
+        } for x in Apartment.objects.filter(address__icontains=search_filter).
+            filter(price__gte=min_mkr, price__lte=max_mkr).
+            filter(num_rooms__gte=min_rooms, num_rooms__lte=max_rooms).
+            filter(size__gte=min_size, size__lte=max_size).
+            filter(zip__in=zip_list).filter(type__in=type_list).order_by('price')]
         return JsonResponse({ 'data': apartments })
 
     context = {"apartments": Apartment.objects.all(), 'title' : 'Söluskrá'}
