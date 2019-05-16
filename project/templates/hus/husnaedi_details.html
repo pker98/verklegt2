@@ -43,8 +43,30 @@
             <h2>Lýsing:</h2>
             <p>{{ apartment.description }}</p>
         </div>
+
         <br>
     </div>
+
+     <h5 style="margin-top: 2rem">Frekari upplýsingar fást hjá:</h5>
+
+    <div class="seller">
+        {% for image in profiles %}
+        {% if image.user_id == apartment.seller.id %}
+           <div>
+               <img src="{{ image.profile_img }}">
+           </div>
+        {% endif %}
+        {% endfor %}
+        <div class="seller-info">
+            <div class="first_name">{{ apartment.seller.first_name }}</div>
+            <div class="last_name"> {{ apartment.seller.last_name }}</div>
+            <p>Löggiltur fasteignasali</p>
+            <i class="fa fa-vcard" style="font-size:24px; position: relative; top: 0.2rem;"></i>
+            <a style="margin-left: 0.5rem" href="mailto: {{ apartment.seller.email }}">{{ apartment.seller.email }}</a>
+        </div>
+
+    </div>
+
         <a href="{% url 'greidsla' apartment.id %}" id="btn-buy" class='block btn btn-primary m-2'>Kaupa húsnæði</a>
         {%  if user.is_superuser %}
         <a href="{% url 'eyda_husnaedi' apartment.id %}" id="btn-delete" class='block btn btn-primary m-2'>Eyða húsnæði</a>

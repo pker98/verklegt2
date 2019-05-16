@@ -24,6 +24,7 @@ class Apartment(models.Model):
     description = models.CharField(max_length=600)
     zip = models.IntegerField(blank=False)
     town = models.CharField(max_length=255, blank=False)
+    seller = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.address

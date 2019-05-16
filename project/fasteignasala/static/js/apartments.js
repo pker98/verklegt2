@@ -1,6 +1,6 @@
 
 function sort(){
-    var sortval = $('#sortval').val();
+    var sortval = $('#sortval').value();
     $.ajax({
         type: "POST",
         url: "",

@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>{{ user.first_name }}</h1>
+    <h2 class="h2">Staðfesting</h2>
+    <p>Með því að ýta á staðfesta samþykkir þú, {{ user.first_name }} hér með skilmála LúxHús fasteignasölu.
+    Verður þú nýr eigandi af íbúðinni. Takk og bless.</p>
+    <button class="btn btn-success">STAÐFESTA</button>
 {% endblock %}
