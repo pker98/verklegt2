@@ -1,4 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Hi</h1>
+    <h2 class="h2">{{ paymentinfo.name }} {{ paymentinfo.email }} {{ paymentinfo.phone }}</h2>
+    <p>{{ apartment.address }}</p> <p>1: {{ test }} 2: {{ test2 }} 3: {{ test3 }}</p>
+    <table>
+  <tr>
+    <th>Kostnaðarliður</th>
+    <th>Verð</th>
+  </tr>
+  <tr>
+    <td>Fasteign: {{ apartment.address }}</td>
+    <td>{{ apartment.price }} kr.</td>
+  </tr>
+  <tr>
+    <td>Þjónustugjald</td>
+    <td>17500 kr.</td>
+  </tr>
+  <tr>
+    <td>Umsýslugjald</td>
+    <td>{{ special_price }}</td>
+  </tr>
+    <tr>
+    <td>Þinglýsingarkostnaður</td>
+    <td>2500</td>
+  </tr>
+    <h3 class="h3">Heildarkostnaður: {{ total }} kr.</h3>
+</table>
 {% endblock content %}
