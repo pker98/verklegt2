@@ -1,6 +1,7 @@
-html {
+html, body {
     font-family: Roboto, sans-serif;
     scroll-behavior: smooth;
+    height: 100%;
 }
 h2 {
     font-size: 1.5rem;
@@ -286,9 +287,35 @@ select option:nth-child(odd) {
     transition: 0.2s;
 }
 
-.navbar-brand {
+.navbar .navbar-brand {
     font-size: 2rem;
 }
+
+
+
+.footer {
+    position: relative;
+    background-color: #6A6A74;
+    height: 8rem;
+    margin-top: -8rem;
+    clear: both;
+    color: white;
+    padding: 2rem;
+
+
+}
+
+.footer div {
+    margin: auto;
+}
+
+#main {
+    min-height: 100%;
+    overflow: auto;
+    padding-bottom: 10rem;
+}
+
+
 .navbar-nav li:hover a {
     border-bottom: 0.15rem solid #F5BB63;
     opacity: 1;

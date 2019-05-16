@@ -17,52 +17,57 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'fasteignasala-home' %}">LúxHús</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
+    <div id="main">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{% url 'fasteignasala-home' %}">LúxHús</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'soluskra-home' %}">Söluskrá</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'starfsmenn-home' %}">Starfsmenn</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'um-okkur-home' %}">Um okkur</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            {% if user.is_authenticated %}
-                <li>
-                    <a class="nav-link" href="{% url 'nytt_husnaedi' %}">Nýskrá húsnæði</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'soluskra-home' %}">Söluskrá</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'minar_sidur' %}">Mínar síður</a>
+                    <a class="nav-link" href="{% url 'starfsmenn-home' %}">Starfsmenn</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'utskraning' %}">Skrá út</a>
+                    <a class="nav-link" href="{% url 'um-okkur-home' %}">Um okkur</a>
                 </li>
-            {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'innskraning' %}">Innskráning</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'nyskraning' %}">Nýskráning</a>
-                </li>
-            {% endif %}
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                    <li>
+                        <a class="nav-link" href="{% url 'nytt_husnaedi' %}">Nýskrá húsnæði</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'minar_sidur' %}">Mínar síður</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'utskraning' %}">Skrá út</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'innskraning' %}">Innskráning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'nyskraning' %}">Nýskráning</a>
+                    </li>
+                {% endif %}
 
-        </ul>
-      </div>
-    </nav>
+            </ul>
+          </div>
+        </nav>
 
-    <div class="container">
-        {% block content %}
-        {% endblock %}
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
     </div>
+
+
+
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
@@ -70,5 +75,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="{% static 'js/apartments.js' %}"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <footer class="footer">
+        <div><h2>LúxHús</h2></div>
+        <p>Copyright &copy; 2019, Lúxhús</p>
+    </footer>
 </body>
 </html>

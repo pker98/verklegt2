@@ -34,7 +34,7 @@ def home(request, query=None):
             'description': x.description,
             'town': x.town,
             'zip': x.zip,
-            'first_image': x.apartmentimage_set.first().image
+            'first_image': x.apartmentimage_set.first().image,
         } for x in Apartment.objects.filter(address__icontains=search_filter).filter(price__gte=min_mkr, price__lte=max_mkr).
         filter(num_rooms__gte=min_rooms, num_rooms__lte=max_rooms).filter(size__gte=min_size, size__lte=max_size)]
         return JsonResponse({ 'data': apartments })
