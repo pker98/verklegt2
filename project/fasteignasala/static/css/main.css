@@ -321,8 +321,8 @@ select option:nth-child(odd) {
 }
 
 .footer-section {
-    margin: 1rem;
-    width: 30rem;
+    margin: 0 auto;
+    width: 15rem;
 }
 
 

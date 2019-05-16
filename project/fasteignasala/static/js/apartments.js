@@ -124,7 +124,8 @@ $(document).ready(function() {
             type: 'GET',
             success: [ function(resp) {
                 var newHtml = resp.data.map(d => {
-                    return `<div class="apartment_container">
+                    return `
+                            <div class="apartment_container">
                             <a href="/${d.id}">
                             <div class="see_more">
                             <p>Skoða nánar</p>
@@ -144,7 +145,7 @@ $(document).ready(function() {
                             </div>
 
                             <div class="price_container">
-                                <div>Verð: ${d.price} kr.</div>
+                                <div class="price-text">Verð: ${ d.price.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') + ' kr.' }</div>
                             </div>
                             </div>`
                 });
