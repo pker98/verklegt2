@@ -2,6 +2,7 @@ from django import forms
 from django.forms import ModelForm, widgets
 from greidsla.models import Buyer
 
+
 class GreidsluferliForm(ModelForm):
     class Meta:
         model = Buyer

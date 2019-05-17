@@ -12,23 +12,20 @@ def greidsla(request, id):
         form = GreidsluferliForm(data=request.POST)
         if form.is_valid():
             buyer = form.save()
-            buyer.user_id = request.user.id
+            buyer.user_id_id = request.user.id
             buyer.save()
-            return redirect('yfirlit')
+            return redirect('yfirlit', id)
     else:
         form = GreidsluferliForm()
     context = {'payment_form': form, 'id': id, 'title': 'Yfirlit'}
     return render(request, 'greidsluferli/greidsluupplysingar.html', context)
 
 
-
-
-
 @login_required
 def yfirlit(request, id):
     buyer = Buyer.objects.all()
     apartment = get_object_or_404(Apartment, pk=id)
-    umsyslugjald = apartment.price * 0.8
+    umsyslugjald = apartment.price * 0.08
     total = apartment.price + 17500 + umsyslugjald + 2500
     context = { 'apartment': apartment,
                 'special_price': umsyslugjald, 'total': total,
