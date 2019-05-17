@@ -12,10 +12,11 @@ def greidsla(request, id):
         form = GreidsluferliForm(data=request.POST)
         if form.is_valid():
             buyer = form.save()
-            buyer.user_id_id = request.user.id
+            buyer.user_id = request.user.id
             buyer.save()
             return redirect('yfirlit')
-    form = GreidsluferliForm()
+    else:
+        form = GreidsluferliForm()
     context = {'payment_form': form, 'id': id, 'title': 'Yfirlit'}
     return render(request, 'greidsluferli/greidsluupplysingar.html', context)
 
