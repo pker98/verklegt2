@@ -5,7 +5,7 @@ from greidsla.models import Buyer
 class GreidsluferliForm(ModelForm):
     class Meta:
         model = Buyer
-        exclude = ['id']
+        exclude = ['id', 'user_id']
         widgets = {
             'name': widgets.TextInput(attrs={'class': 'form-control' }),
             'ssn': widgets.NumberInput(attrs={'class': 'form-control'}),

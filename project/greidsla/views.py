@@ -2,37 +2,36 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required, permission_required
 from fasteignasala.models import Apartment
 from greidsla.forms.greidsluform import GreidsluferliForm
-
-
-def send_get_form(form=None):
-    if form:
-        temp_form = form
-    else:
-        return temp_form
+from greidsla.models import Buyer
+from django.contrib.auth.models import User
 
 
 @login_required
 def greidsla(request, id):
-
-    if request.method == 'GET':
-        form = GreidsluferliForm(data=request.GET)
+    if request.method == "POST":
+        form = GreidsluferliForm(data=request.POST)
         if form.is_valid():
+            buyer = form.save()
+            buyer.user_id_id = request.user.id
+            buyer.save()
             return redirect('yfirlit')
-    else:
-        form = GreidsluferliForm()
-    context = {'payment_form': form, 'id': id}
+    form = GreidsluferliForm()
+    context = {'payment_form': form, 'id': id, 'title': 'Yfirlit'}
     return render(request, 'greidsluferli/greidsluupplysingar.html', context)
+
+
+
 
 
 @login_required
 def yfirlit(request, id):
-    data = 1
+    buyer = Buyer.objects.all()
     apartment = get_object_or_404(Apartment, pk=id)
     umsyslugjald = apartment.price * 0.8
     total = apartment.price + 17500 + umsyslugjald + 2500
     context = { 'apartment': apartment,
                 'special_price': umsyslugjald, 'total': total,
-                'data': data}
+                'buyer' : buyer}
 
     return render(request, 'greidsluferli/greidsluferliyfirlit.html', context)
 
