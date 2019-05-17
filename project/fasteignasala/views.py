@@ -41,6 +41,15 @@ def find_apartment(request):
         value = 'size'
     elif order == '4':
         value = '-size'
+    elif order == '5':
+        value = 'zip'
+    elif order == '6':
+        value = '-zip'
+    elif order == '7':
+        value = 'address'
+    elif order == '8':
+        value = '-address'
+
     apartments = [{
         'id': x.id,
         'address': x.address,
