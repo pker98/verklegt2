@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
+    {% block content %}
+    {% endblock %}
     <div class="input-group">
         <form class="search-input">
             <div style="width: 100%">
@@ -129,8 +131,6 @@
 
                     </div>
                 </div>
-
-
                 <div class="dropdown show d-inline" id="type">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Tegund
@@ -161,25 +161,26 @@
                 <button type="button" id="search-button" onclick="get_apart()" class="btn btn-default orange-background">Leita</button>
             </div>
         </form>
-
        <a class="arrow-container" href="#apartment_list">
           <span class="down-arrow">
           </span>
         </a>
-
-    <div id="sort-block">
-        <div id="sort-head">
-            Raða eftir
+        <div id="sort-block">
+            <div id="sort-head">
+                Raða eftir
+            </div>
+            <select id="order_option" onchange="get_apart()">
+                <option type="button" value="1" selected="selected">Verð: lægsta - hæsta</option>
+                <option type="button" value="2">Verð: hæsta - lægsta</option>
+                <option type="button" value="3">Stærð: minnsta - stærsta</option>
+                <option type="button" value="4">Stærð: stærsta - minnsta</option>
+                <option type="button" value="5">Póst nr: lægsta - hæsta</option>
+                <option type="button" value="6">Póst nr: hæsta - lægsta</option>
+                <option type="button" value="7">Stafrófsröð: A - Z</option>
+                <option type="button" value="8">Stafrófsröð: Z - A</option>
+            </select>
         </div>
-        <select id="order_option" onchange="get_apart()">
-            <option type="button" value="1" selected="selected">Verð: lægsta - hæsta</option>
-            <option type="button" value="2">Verð: hæsta - lægsta</option>
-            <option type="button" value="3">Stærð: minnsta - stærsta</option>
-            <option type="button" value="4">Stærð: stærsta - minnsta</option>
-        </select>
     </div>
-    </div>
-
 
     <div class="apartment_list" id="apartment_list">
         <h2 class="text-center pt-3 pb-3">Allar eignir:</h2>

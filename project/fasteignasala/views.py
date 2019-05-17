@@ -124,7 +124,6 @@ def create_apartment(request):
         'form': form
     })
 
-
 @login_required
 @permission_required('apartment.can_delete_appartment', raise_exception=True)
 def delete_apartment(request, id):
