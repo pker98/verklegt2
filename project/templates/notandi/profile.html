@@ -18,8 +18,8 @@
             <input type="submit" class="btn btn-primary" value="Update"/>
         </form>
     </div>
-
-    <div class="col-md-6 history-content">
+    <div class="modal-body row">
+    <div class="col-md-5 history-content">
         <h2 style="text-align: center; margin-bottom: 1rem">Nýlega skoðaðar síður:</h2>
         {% for instance in history %}
             <div class="history-block">
@@ -31,5 +31,21 @@
                 <img  class="history-img" src="{{ instance.apartment.apartmentimage_set.first.image }}">
             </div>
         {% endfor %}
+    </div>
+    {% if user.is_staff %}
+    <div class="col-md-5 history-content">
+        <h2 style="text-align: center; margin-bottom: 1rem">Mínar fasteignir á söluskrá:</h2>
+        {% for apartment in on_sale %}
+            <div class="history-block">
+                <a href="/{{ apartment.id }}">
+                    <h2>{{ apartment }}</h2>
+                    <p>Póstnúmer: {{ apartment.zip }}</p>
+                    <p>Skoðað á: {{ viewed_on }}</p>
+                </a>
+                <img  class="history-img" src="{{ apartment.apartmentimage_set.first.image }}">
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
     </div>
 {% endblock content %}

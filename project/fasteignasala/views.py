@@ -112,7 +112,6 @@ def create_apartment(request):
     if request.method == 'POST':
         form = HusnaediCreateForm(data=request.POST)
         if form.is_valid():
-
             apartment = form.save()
             apartment.seller = request.user
             apartment.save()
@@ -141,7 +140,9 @@ def update_apartment(request, id):
     if request.method == 'POST':
         form = HusnaediUpdateForm(data=request.POST, instance=instance)
         if form.is_valid():
-            form.save()
+            apartment = form.save()
+            apartment_image = ApartmentImage(image=request.POST['image'], apartment=apartment)
+            apartment_image.save()
             return redirect('apartment_details', id=id)
     else:
         form = HusnaediUpdateForm(instance=instance)

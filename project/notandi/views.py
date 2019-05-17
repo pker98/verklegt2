@@ -3,6 +3,8 @@ from django.db.models import Count
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
+
+from fasteignasala.models import Apartment
 from notandi.models import ProfileImage
 from notandi.forms.profileform import ProfileImageForm, UserUpdateForm
 from .forms.profileform import RegistrationForm
@@ -26,10 +28,10 @@ def innskraning(request):
 
 
 def profile(request):
-    #profile = Profile.objects.filter(user=request.user).first()#Not sure if I add user here
     user = User.objects.filter(id=request.user.id).first()
     profile = ProfileImage.objects.filter(user_id=request.user.id).first()
     history_list = History.objects.filter(user_id=request.user.id).order_by('-viewed_on')[:10]
+    apartments_on_sale = Apartment.objects.filter(seller_id=request.user.id)
     if request.method == "POST":
         image_form = ProfileImageForm(instance=profile, data=request.POST)
         form = UserUpdateForm(instance=user, data=request.POST)
@@ -38,5 +40,5 @@ def profile(request):
             image_form.save()
             return redirect('minar_sidur')
     context = {'form': UserUpdateForm(instance=user), 'image_form': ProfileImageForm(instance=profile),
-               'history': history_list, 'user': user, 'profile': profile}
+               'history': history_list, 'user': user, 'profile': profile, 'on_sale': apartments_on_sale}
     return render(request, 'notandi/profile.html', context)
