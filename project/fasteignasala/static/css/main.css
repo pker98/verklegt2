@@ -283,6 +283,8 @@ select option:nth-child(odd) {
     border-style: solid;
     border-radius: 0.2rem;
     margin: 0.1rem 0;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 
@@ -291,6 +293,10 @@ select option:nth-child(odd) {
     margin-left: 1rem;
     margin-top: 1rem;
     display: inline-block;
+}
+
+.history-block .apartment-info {
+    flex-grow: 8;
 }
 
 .history-content :nth-child(even).history-block {
