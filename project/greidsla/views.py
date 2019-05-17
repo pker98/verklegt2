@@ -23,13 +23,14 @@ def greidsla(request, id):
 
 @login_required
 def yfirlit(request, id):
-    buyer = Buyer.objects.all()
+    buyer = Buyer.objects.filter(user_id=request.user.id).first()
     apartment = get_object_or_404(Apartment, pk=id)
     umsyslugjald = apartment.price * 0.08
     total = apartment.price + 17500 + umsyslugjald + 2500
     context = { 'apartment': apartment,
                 'special_price': umsyslugjald, 'total': total,
-                'buyer' : buyer}
+                'buyer' : buyer,
+                'id': id}
 
     return render(request, 'greidsluferli/greidsluferliyfirlit.html', context)
 
@@ -37,5 +38,6 @@ def yfirlit(request, id):
 @login_required
 def stadfesting(request, id):
     apartment = get_object_or_404(Apartment, pk=id)
-    context = { 'apartment': apartment}
+    apartment.delete()
+    context = { 'apartment': apartment }
     return render(request, 'greidsluferli/greidslustadfesting.html', context)

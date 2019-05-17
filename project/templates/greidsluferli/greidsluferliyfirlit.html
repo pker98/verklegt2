@@ -1,7 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2 class="h2">{{ buyer }}</h2>
-    <table class="yfirlit">
+    <h2 class="h2">Yfirlit</h2>
+    <table class="yfirlit" style="margin:1rem 0;">
+        <tr>
+            <td>Fullt nafn: </td>
+            <td>{{ buyer.name }}</td>
+        </tr>
+        <tr>
+            <td>Kennitala: </td>
+            <td> {{ buyer.ssn }}</td>
+        </tr>
+        <tr>
+            <td>Heimilisfang: </td>
+            <td> {{ buyer.zip }} {{ buyer.address }}</td>
+        </tr>
+        <tr>
+            <td>Sími: </td>
+            <td> {{ buyer.phone }}</td>
+        </tr>
+        <tr>
+            <td>Nafn korthafa: </td>
+            <td> {{ buyer.pay_name }}</td>
+        </tr>
+
+    </table>
+    <table class="yfirlit" style="margin:1rem 0;">
         <tr>
             <th>Kostnaðarliður</th>
             <th>Verð</th>
@@ -22,13 +45,13 @@
             <td>Þinglýsingarkostnaður</td>
             <td>2500</td>
         </tr>
-        <tr style="border-top: 0.1rem solid lightgray">
-            <td>
-                <h3 style="font-weight: normal; font-size: 1.5rem" class="h3">Heildarkostnaður:</h3>
-            </td>
-            <td>
-                <span style="display: inline-block; font-weight: bold; font-size: 1.5rem">{{ total }} kr.</span>
-            </td>
-        </tr>
     </table>
+            <div class="final-cost">
+                <h3 style="display: inline-block; font-weight: normal; font-size: 1.5rem" class="h3">Heildarkostnaður:</h3>
+                <span style="display: inline-block; font-weight: bold; font-size: 1.5rem; padding-left: 8rem">{{ total }} kr.</span>
+            </div>
+    <a href="{% url 'stadfesting' id %}">
+    <button type="submit" value="Staðfesta" class="btn btn-primary pull-right" style="clear:both; float: left; margin:10px 0">Næsta síða</button>
+    </a>
+
 {% endblock content %}

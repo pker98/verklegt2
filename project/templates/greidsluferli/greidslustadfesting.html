@@ -3,5 +3,7 @@
     <h2 class="h2">Staðfesting</h2>
     <p>Með því að ýta á staðfesta samþykkir þú, {{ user.first_name }} hér með skilmála LúxHús fasteignasölu.
     Verður þú nýr eigandi af íbúðinni. Takk og bless.</p>
-    <button class="btn btn-success">STAÐFESTA</button>
+    <a href="{% url 'fasteignasala-home' %}">
+    <button type="submit" value="Staðfesta" id="btn-buy" class="btn btn-primary pull-right" style="clear:both; float: left;">Staðfesta</button>
+    </a>
 {% endblock %}
