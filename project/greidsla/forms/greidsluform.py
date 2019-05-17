@@ -7,15 +7,15 @@ class GreidsluferliForm(ModelForm):
         model = Buyer
         exclude = ['id']
         widgets = {
-            'name': widgets.TextInput(attrs={ 'class': 'form-control' }),
-            'ssn': widgets.NumberInput(attrs={ 'class': 'form-control'}),
+            'name': widgets.TextInput(attrs={'class': 'form-control' }),
+            'ssn': widgets.NumberInput(attrs={'class': 'form-control'}),
             'address': widgets.TextInput(attrs={'class': 'form-control'}),
             'zip': widgets.NumberInput(attrs={'class': 'form-control'}),
             'phone': widgets.NumberInput(attrs={'class': 'form-control'}),
             'pay_name': widgets.TextInput(attrs={'class': 'form-control'}),
-            'card_number': widgets.NumberInput(attrs={ 'class': 'form-control' }),
+            'card_number': widgets.NumberInput(attrs={'class': 'form-control'}),
             'date_of_expiration': widgets.SelectDateWidget(empty_label=("Ár", "Mán", "Dagur")),
-            'ccv': widgets.NumberInput(attrs={ 'class': 'form-control'})
+            'ccv': widgets.NumberInput(attrs={'class': 'form-control'})
         }
         labels = {
             'name': 'Fullt nafn',
